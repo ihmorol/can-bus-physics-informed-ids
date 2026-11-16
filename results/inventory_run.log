@@ -1,0 +1,310 @@
+690 columns in dump1.parquet; matched 16/16 needed signals
+  NOTE N: expected 316_N; candidates ['080_N', '316_N']
+                                   file   rows  columns_total  duration_min  step_ms_median  step_ms_min  step_ms_max  label0  label1  frac_above_5kmh  max_wheel_kmh
+                   signal\dump1.parquet 286293            690         23.86             5.0          5.0          5.0  286293       0            0.849           93.6
+                   signal\dump2.parquet 378898            690         31.57             5.0          5.0          5.0  378898       0            0.830           85.8
+                   signal\dump3.parquet 296333            690         24.69             5.0          5.0          5.0  296333       0            0.858          100.4
+                   signal\dump4.parquet 436405            690         36.37             5.0          5.0          5.0  436405       0            0.794           96.2
+                   signal\dump5.parquet 267239            690         22.27             5.0          5.0          5.0  267239       0            0.912           95.8
+         signal\dump6-fabr-044h.parquet 392387            690         32.70             5.0          5.0          5.0  391427     960            0.757           94.2
+         signal\dump6-fabr-080h.parquet 392387            690         32.70             5.0          5.0          5.0  303106   89281            0.757           94.2
+         signal\dump6-fabr-081h.parquet 392387            690         32.70             5.0          5.0          5.0  303106   89281            0.757           94.2
+         signal\dump6-fabr-111h.parquet 392387            690         32.70             5.0          5.0          5.0  304360   88027            0.757           94.2
+         signal\dump6-fabr-112h.parquet 392387            690         32.70             5.0          5.0          5.0  304360   88027            0.757           94.2
+         signal\dump6-fabr-113h.parquet 392387            690         32.70             5.0          5.0          5.0  304360   88027            0.757           94.2
+         signal\dump6-fabr-162h.parquet 392387            690         32.70             5.0          5.0          5.0  303396   88991            0.757           94.2
+         signal\dump6-fabr-18Fh.parquet 392387            690         32.70             5.0          5.0          5.0  303106   89281            0.757           94.2
+         signal\dump6-fabr-200h.parquet 392387            690         32.70             5.0          5.0          5.0  303106   89281            0.757           94.2
+         signal\dump6-fabr-220h.parquet 392387            690         32.70             5.0          5.0          5.0  303746   88641            0.757           94.2
+         signal\dump6-fabr-251h.parquet 392387            690         32.70             5.0          5.0          5.0  303628   88759            0.757           94.2
+         signal\dump6-fabr-260h.parquet 392387            690         32.70             5.0          5.0          5.0  303106   89281            0.757           94.2
+         signal\dump6-fabr-2B0h.parquet 392387            690         32.70             5.0          5.0          5.0  304000   88387            0.757           94.2
+         signal\dump6-fabr-316h.parquet 392387            690         32.70             5.0          5.0          5.0  303133   89254            0.757           94.2
+         signal\dump6-fabr-329h.parquet 392387            690         32.70             5.0          5.0          5.0  303285   89102            0.757           94.2
+         signal\dump6-fabr-381h.parquet 392387            690         32.70             5.0          5.0          5.0  348021   44366            0.757           94.2
+         signal\dump6-fabr-383h.parquet 392387            690         32.70             5.0          5.0          5.0  347921   44466            0.757           94.2
+         signal\dump6-fabr-386h.parquet 392387            690         32.70             5.0          5.0          5.0  347564   44823            0.577          512.0
+         signal\dump6-fabr-387h.parquet 392387            690         32.70             5.0          5.0          5.0  347564   44823            0.757           94.2
+         signal\dump6-fabr-47Fh.parquet 392387            690         32.70             5.0          5.0          5.0  347916   44471            0.757           94.2
+         signal\dump6-fabr-4F1h.parquet 392387            690         32.70             5.0          5.0          5.0  348155   44232            0.757           94.2
+         signal\dump6-fabr-50Ch.parquet 392387            690         32.70             5.0          5.0          5.0  383552    8835            0.757           94.2
+         signal\dump6-fabr-52Ah.parquet 392387            690         32.70             5.0          5.0          5.0  384183    8204            0.757           94.2
+         signal\dump6-fabr-541h.parquet 392387            690         32.70             5.0          5.0          5.0  383529    8858            0.757           94.2
+         signal\dump6-fabr-545h.parquet 392387            690         32.70             5.0          5.0          5.0  383549    8838            0.757           94.2
+         signal\dump6-fabr-547h.parquet 392387            690         32.70             5.0          5.0          5.0  383549    8838            0.757           94.2
+         signal\dump6-fabr-549h.parquet 392387            690         32.70             5.0          5.0          5.0  383435    8952            0.757           94.2
+         signal\dump6-fabr-553h.parquet 392387            690         32.70             5.0          5.0          5.0  387935    4452            0.757           94.2
+         signal\dump6-fabr-555h.parquet 392387            690         32.70             5.0          5.0          5.0  383475    8912            0.757           94.2
+         signal\dump6-fabr-556h.parquet 392387            690         32.70             5.0          5.0          5.0  383549    8838            0.757           94.2
+         signal\dump6-fabr-557h.parquet 392387            690         32.70             5.0          5.0          5.0  383511    8876            0.757           94.2
+         signal\dump6-fabr-58Bh.parquet 392387            690         32.70             5.0          5.0          5.0  383649    8738            0.757           94.2
+         signal\dump6-fabr-593h.parquet 392387            690         32.70             5.0          5.0          5.0  388034    4353            0.757           94.2
+         signal\dump6-fabr-5A0h.parquet 392387            690         32.70             5.0          5.0          5.0  391509     878            0.757           94.2
+         signal\dump6-fabr-5B0h.parquet 392387            690         32.70             5.0          5.0          5.0  391492     895            0.757           94.2
+           signal\dump6-fuzz-10.parquet 392387            690         32.70             5.0          5.0          5.0  383547    8840            0.757          453.8
+          signal\dump6-fuzz-100.parquet 392387            690         32.70             5.0          5.0          5.0  304801   87586            0.758          486.8
+         signal\dump6-fuzz-1000.parquet 392387            690         32.70             5.0          5.0          5.0  210181  182206            0.763          492.6
+         signal\dump6-fuzz-1500.parquet 392387            690         32.70             5.0          5.0          5.0  205879  186508            0.765          485.2
+           signal\dump6-fuzz-20.parquet 392387            690         32.70             5.0          5.0          5.0  374833   17554            0.757          462.8
+          signal\dump6-fuzz-200.parquet 392387            690         32.70             5.0          5.0          5.0  243921  148466            0.758          482.7
+         signal\dump6-fuzz-2000.parquet 392387            690         32.70             5.0          5.0          5.0  202744  189643            0.767          494.4
+           signal\dump6-fuzz-30.parquet 392387            690         32.70             5.0          5.0          5.0  366133   26254            0.757          435.8
+          signal\dump6-fuzz-300.parquet 392387            690         32.70             5.0          5.0          5.0  225019  167368            0.759          482.8
+           signal\dump6-fuzz-40.parquet 392387            690         32.70             5.0          5.0          5.0  357081   35306            0.757          466.8
+          signal\dump6-fuzz-400.parquet 392387            690         32.70             5.0          5.0          5.0  219750  172637            0.759          486.3
+           signal\dump6-fuzz-50.parquet 392387            690         32.70             5.0          5.0          5.0  348438   43949            0.757          464.2
+          signal\dump6-fuzz-500.parquet 392387            690         32.70             5.0          5.0          5.0  216681  175706            0.760          486.6
+           signal\dump6-fuzz-60.parquet 392387            690         32.70             5.0          5.0          5.0  339494   52893            0.757          457.5
+           signal\dump6-fuzz-70.parquet 392387            690         32.70             5.0          5.0          5.0  330294   62093            0.757          482.8
+           signal\dump6-fuzz-80.parquet 392387            690         32.70             5.0          5.0          5.0  322062   70325            0.758          456.6
+           signal\dump6-fuzz-90.parquet 392387            690         32.70             5.0          5.0          5.0  313414   78973            0.758          446.9
+         signal\dump6-masq-044h.parquet 392387            690         32.70             5.0          5.0          5.0  391359    1028            0.757           94.2
+         signal\dump6-masq-080h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-masq-081h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-masq-111h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-masq-112h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-masq-113h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-masq-162h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-masq-18Fh.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-masq-200h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-masq-220h.parquet 392387            690         32.70             5.0          5.0          5.0  296380   96007            0.757           94.2
+         signal\dump6-masq-251h.parquet 392387            690         32.70             5.0          5.0          5.0  296393   95994            0.757           94.2
+         signal\dump6-masq-260h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-masq-2B0h.parquet 392387            690         32.70             5.0          5.0          5.0  296393   95994            0.757           94.2
+         signal\dump6-masq-316h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-masq-329h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-masq-381h.parquet 392387            690         32.70             5.0          5.0          5.0  344389   47998            0.757           94.2
+         signal\dump6-masq-383h.parquet 392387            690         32.70             5.0          5.0          5.0  344270   48117            0.757           94.2
+         signal\dump6-masq-386h.parquet 392387            690         32.70             5.0          5.0          5.0  344383   48004            0.552          512.0
+         signal\dump6-masq-387h.parquet 392387            690         32.70             5.0          5.0          5.0  344383   48004            0.757           94.2
+         signal\dump6-masq-47Fh.parquet 392387            690         32.70             5.0          5.0          5.0  344384   48003            0.757           94.2
+         signal\dump6-masq-4F1h.parquet 392387            690         32.70             5.0          5.0          5.0  344370   48017            0.757           94.2
+         signal\dump6-masq-50Ch.parquet 392387            690         32.70             5.0          5.0          5.0  382784    9603            0.757           94.2
+         signal\dump6-masq-52Ah.parquet 392387            690         32.70             5.0          5.0          5.0  383494    8893            0.757           94.2
+         signal\dump6-masq-541h.parquet 392387            690         32.70             5.0          5.0          5.0  382582    9805            0.757           94.2
+         signal\dump6-masq-545h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-masq-547h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-masq-549h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-masq-553h.parquet 392387            690         32.70             5.0          5.0          5.0  387534    4853            0.757           94.2
+         signal\dump6-masq-555h.parquet 392387            690         32.70             5.0          5.0          5.0  382772    9615            0.757           94.2
+         signal\dump6-masq-556h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-masq-557h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-masq-58Bh.parquet 392387            690         32.70             5.0          5.0          5.0  382787    9600            0.757           94.2
+         signal\dump6-masq-593h.parquet 392387            690         32.70             5.0          5.0          5.0  387587    4800            0.757           94.2
+         signal\dump6-masq-5A0h.parquet 392387            690         32.70             5.0          5.0          5.0  391426     961            0.757           94.2
+         signal\dump6-masq-5B0h.parquet 392387            690         32.70             5.0          5.0          5.0  391426     961            0.757           94.2
+        signal\dump6-repl-0-120.parquet 392387            690         32.70             5.0          5.0          5.0  207439  184948            0.642           94.2
+      signal\dump6-repl-120-240.parquet 392387            690         32.70             5.0          5.0          5.0  207577  184810            0.652           94.2
+      signal\dump6-repl-240-360.parquet 392387            690         32.70             5.0          5.0          5.0  208017  184370            0.592           94.2
+signal\dump6-repl-360-479.99999.parquet 392387            690         32.70             5.0          5.0          5.0  206509  185878            0.582           94.2
+         signal\dump6-susp-044h.parquet 392387            690         32.70             5.0          5.0          5.0  391359    1028            0.757           94.2
+         signal\dump6-susp-080h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-susp-081h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-susp-111h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-susp-112h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-susp-113h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-susp-162h.parquet 392387            690         32.70             5.0          5.0          5.0  296389   95998            0.757           94.2
+         signal\dump6-susp-18Fh.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-susp-200h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-susp-220h.parquet 392387            690         32.70             5.0          5.0          5.0  296380   96007            0.757           94.2
+         signal\dump6-susp-251h.parquet 392387            690         32.70             5.0          5.0          5.0  296393   95994            0.757           94.2
+         signal\dump6-susp-260h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-susp-2B0h.parquet 392387            690         32.70             5.0          5.0          5.0  296393   95994            0.757           94.2
+         signal\dump6-susp-316h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-susp-329h.parquet 392387            690         32.70             5.0          5.0          5.0  296378   96009            0.757           94.2
+         signal\dump6-susp-381h.parquet 392387            690         32.70             5.0          5.0          5.0  344389   47998            0.757           94.2
+         signal\dump6-susp-383h.parquet 392387            690         32.70             5.0          5.0          5.0  344270   48117            0.757           94.2
+         signal\dump6-susp-386h.parquet 392387            690         32.70             5.0          5.0          5.0  344383   48004            0.307           94.2
+         signal\dump6-susp-387h.parquet 392387            690         32.70             5.0          5.0          5.0  344383   48004            0.757           94.2
+         signal\dump6-susp-47Fh.parquet 392387            690         32.70             5.0          5.0          5.0  344384   48003            0.757           94.2
+         signal\dump6-susp-4F1h.parquet 392387            690         32.70             5.0          5.0          5.0  344370   48017            0.757           94.2
+         signal\dump6-susp-50Ch.parquet 392387            690         32.70             5.0          5.0          5.0  382784    9603            0.757           94.2
+         signal\dump6-susp-52Ah.parquet 392387            690         32.70             5.0          5.0          5.0  383494    8893            0.757           94.2
+         signal\dump6-susp-541h.parquet 392387            690         32.70             5.0          5.0          5.0  382582    9805            0.757           94.2
+         signal\dump6-susp-545h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-susp-547h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-susp-549h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-susp-553h.parquet 392387            690         32.70             5.0          5.0          5.0  387534    4853            0.757           94.2
+         signal\dump6-susp-555h.parquet 392387            690         32.70             5.0          5.0          5.0  382772    9615            0.757           94.2
+         signal\dump6-susp-556h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-susp-557h.parquet 392387            690         32.70             5.0          5.0          5.0  382786    9601            0.757           94.2
+         signal\dump6-susp-58Bh.parquet 392387            690         32.70             5.0          5.0          5.0  382787    9600            0.757           94.2
+         signal\dump6-susp-593h.parquet 392387            690         32.70             5.0          5.0          5.0  387587    4800            0.757           94.2
+         signal\dump6-susp-5A0h.parquet 392387            690         32.70             5.0          5.0          5.0  391426     961            0.757           94.2
+         signal\dump6-susp-5B0h.parquet 392387            690         32.70             5.0          5.0          5.0  391426     961            0.757           94.2
+                   signal\dump6.parquet 392387            690         32.70             5.0          5.0          5.0  392387       0            0.757           94.2
+                   signal\dump7.parquet 442614            690         36.88             5.0          5.0          5.0  442614       0            0.000            2.1
+ file         signal             column  nan_frac  first_valid_s     min        max     mean  n_unique
+dump1     WHL_SPD_FL     386_WHL_SPD_FL       0.0          0.000    0.00   93.71875   47.068      2909
+dump1     WHL_SPD_FR     386_WHL_SPD_FR       0.0          0.000    0.00   93.87500   46.987      2925
+dump1     WHL_SPD_RL     386_WHL_SPD_RL       0.0          0.000    0.00   93.37500   46.848      2898
+dump1     WHL_SPD_RR     386_WHL_SPD_RR       0.0          0.000    0.00   93.96875   46.902      2934
+dump1    CF_Clu_Vanz    4F1_CF_Clu_Vanz       0.0          0.015    0.00  100.00000   50.770       201
+dump1             VS             316_VS       0.0          0.000    0.00   93.00000   46.573        94
+dump1         VS_TCU         112_VS_TCU       0.0          0.005    0.00   93.00000   46.581        94
+dump1 VS_TCU_DECIMAL 112_VS_TCU_DECIMAL       0.0          0.005    0.00    0.87500    0.396         8
+dump1              N              316_N       0.0          0.000  775.00 2323.00000 1341.270      2890
+dump1   CF_Tcu_TarGr   113_CF_Tcu_TarGr       0.0          0.005    1.00    7.00000    4.446         7
+dump1      SLOPE_TCU      113_SLOPE_TCU       0.0          0.005  -12.00    5.00000   -1.608        35
+dump1     LONG_ACCEL     220_LONG_ACCEL       0.0          0.005   -3.06    2.17000   -0.148       481
+dump1      LAT_ACCEL      220_LAT_ACCEL       0.0          0.005   -4.30    2.52000    0.010       565
+dump1       YAW_RATE       220_YAW_RATE       0.0          0.005  -30.22   40.95000    0.664      2984
+dump1      SAS_Angle      2B0_SAS_Angle       0.0          0.000 -328.60  510.90000    0.711      2351
+dump1       TEMP_ENG       329_TEMP_ENG       0.0          0.005   81.75   96.75000   90.672        21
+dump2     WHL_SPD_FL     386_WHL_SPD_FL       0.0          0.020    0.00   86.40625   36.874      2765
+dump2     WHL_SPD_FR     386_WHL_SPD_FR       0.0          0.020    0.00   85.78125   36.794      2746
+dump2     WHL_SPD_RL     386_WHL_SPD_RL       0.0          0.020    0.00   86.25000   36.700      2753
+dump2     WHL_SPD_RR     386_WHL_SPD_RR       0.0          0.020    0.00   85.84375   36.726      2743
+dump2    CF_Clu_Vanz    4F1_CF_Clu_Vanz       0.0          0.015    0.00   92.00000   40.052       185
+dump2             VS             316_VS       0.0          0.010    0.00   85.00000   36.393        86
+dump2         VS_TCU         112_VS_TCU       0.0          0.010    0.00   86.00000   36.402        87
+dump2 VS_TCU_DECIMAL 112_VS_TCU_DECIMAL       0.0          0.010    0.00    0.87500    0.384         8
+dump2              N              316_N       0.0          0.010  749.00 2539.50000 1310.193      3025
+dump2   CF_Tcu_TarGr   113_CF_Tcu_TarGr       0.0          0.000    1.00    7.00000    3.720         7
+dump2      SLOPE_TCU      113_SLOPE_TCU       0.0          0.000  -16.00    5.50000   -1.691        44
+dump2     LONG_ACCEL     220_LONG_ACCEL       0.0          0.005   -6.90    3.48000   -0.148       775
+dump2      LAT_ACCEL      220_LAT_ACCEL       0.0          0.005   -3.05    3.44000   -0.039       588
+dump2       YAW_RATE       220_YAW_RATE       0.0          0.005  -25.78   40.95000    0.510      2979
+dump2      SAS_Angle      2B0_SAS_Angle       0.0          0.000 -250.00  513.30000    0.023      3081
+dump2       TEMP_ENG       329_TEMP_ENG       0.0          0.000   85.50   95.25000   91.306        14
+dump3     WHL_SPD_FL     386_WHL_SPD_FL       0.0          0.015    0.00  100.84375   47.305      3147
+dump3     WHL_SPD_FR     386_WHL_SPD_FR       0.0          0.015    0.00  100.50000   47.219      3130
+dump3     WHL_SPD_RL     386_WHL_SPD_RL       0.0          0.015    0.00  100.40625   47.082      3133
+dump3     WHL_SPD_RR     386_WHL_SPD_RR       0.0          0.015    0.00  100.59375   47.134      3142
+dump3    CF_Clu_Vanz    4F1_CF_Clu_Vanz       0.0          0.015    0.00  107.50000   51.034       216
+dump3             VS             316_VS       0.0          0.005    0.00  100.00000   46.815       101
+dump3         VS_TCU         112_VS_TCU       0.0          0.010    0.00  100.00000   46.823       101
+dump3 VS_TCU_DECIMAL 112_VS_TCU_DECIMAL       0.0          0.010    0.00    0.87500    0.389         8
+dump3              N              316_N       0.0          0.005  764.00 2648.00000 1345.574      2895
+dump3   CF_Tcu_TarGr   113_CF_Tcu_TarGr       0.0          0.010    1.00    7.00000    4.470         7
+dump3      SLOPE_TCU      113_SLOPE_TCU       0.0          0.010   -9.50    5.00000   -1.614        30
+dump3     LONG_ACCEL     220_LONG_ACCEL       0.0          0.010   -2.85    2.61000   -0.144       524
+dump3      LAT_ACCEL      220_LAT_ACCEL       0.0          0.010   -3.06    3.76000    0.025       596
+dump3       YAW_RATE       220_YAW_RATE       0.0          0.010  -29.59   37.21000    0.688      3168
+dump3      SAS_Angle      2B0_SAS_Angle       0.0          0.005 -506.90  506.90000    0.184      3513
+dump3       TEMP_ENG       329_TEMP_ENG       0.0          0.005   84.75   95.25000   90.934        15
+dump4     WHL_SPD_FL     386_WHL_SPD_FL       0.0          0.015    0.00   96.65625   35.771      3083
+dump4     WHL_SPD_FR     386_WHL_SPD_FR       0.0          0.015    0.00   96.68750   35.676      3069
+dump4     WHL_SPD_RL     386_WHL_SPD_RL       0.0          0.015    0.00   96.75000   35.592      3069
+dump4     WHL_SPD_RR     386_WHL_SPD_RR       0.0          0.015    0.00   97.50000   35.600      3069
+dump4    CF_Clu_Vanz    4F1_CF_Clu_Vanz       0.0          0.005    0.00  103.00000   38.700       207
+dump4             VS             316_VS       0.0          0.010    0.00   96.00000   35.311        97
+dump4         VS_TCU         112_VS_TCU       0.0          0.005    0.00   96.00000   35.318        97
+dump4 VS_TCU_DECIMAL 112_VS_TCU_DECIMAL       0.0          0.005    0.00    0.87500    0.360         8
+dump4              N              316_N       0.0          0.010  759.00 2451.50000 1290.100      3045
+dump4   CF_Tcu_TarGr   113_CF_Tcu_TarGr       0.0          0.005    1.00    7.00000    3.615         7
+dump4      SLOPE_TCU      113_SLOPE_TCU       0.0          0.005  -12.00    5.50000   -1.418        36
+dump4     LONG_ACCEL     220_LONG_ACCEL       0.0          0.010   -4.35    3.49000   -0.116       680
+dump4      LAT_ACCEL      220_LAT_ACCEL       0.0          0.010   -3.47    3.17000   -0.008       595
+dump4       YAW_RATE       220_YAW_RATE       0.0          0.010  -40.38   36.01000    0.325      4762
+dump4      SAS_Angle      2B0_SAS_Angle       0.0          0.010 -488.60  509.70000   -2.812      5431
+dump4       TEMP_ENG       329_TEMP_ENG       0.0          0.000   84.00   96.00000   91.336        17
+dump5     WHL_SPD_FL     386_WHL_SPD_FL       0.0          0.020    0.00   96.12500   50.880      3036
+dump5     WHL_SPD_FR     386_WHL_SPD_FR       0.0          0.020    0.00   95.84375   50.784      3028
+dump5     WHL_SPD_RL     386_WHL_SPD_RL       0.0          0.020    0.00   95.68750   50.638      3024
+dump5     WHL_SPD_RR     386_WHL_SPD_RR       0.0          0.020    0.00   95.96875   50.690      3021
+dump5    CF_Clu_Vanz    4F1_CF_Clu_Vanz       0.0          0.020    0.00  102.50000   54.904       206
+dump5             VS             316_VS       0.0          0.010    0.00   95.00000   50.355        96
+dump5         VS_TCU         112_VS_TCU       0.0          0.005    0.00   95.00000   50.365        96
+dump5 VS_TCU_DECIMAL 112_VS_TCU_DECIMAL       0.0          0.005    0.00    0.87500    0.415         8
+dump5              N              316_N       0.0          0.010  743.50 2401.00000 1370.709      2892
+dump5   CF_Tcu_TarGr   113_CF_Tcu_TarGr       0.0          0.005    1.00    7.00000    4.763         7
+dump5      SLOPE_TCU      113_SLOPE_TCU       0.0          0.005  -11.50    4.50000   -1.665        33
+dump5     LONG_ACCEL     220_LONG_ACCEL       0.0          0.005   -2.70    2.29000   -0.144       496
+dump5      LAT_ACCEL      220_LAT_ACCEL       0.0          0.005   -3.29    2.78000    0.021       564
+dump5       YAW_RATE       220_YAW_RATE       0.0          0.005  -30.93   40.80000    0.653      2965
+dump5      SAS_Angle      2B0_SAS_Angle       0.0          0.005 -290.10  513.20000    1.824      2646
+dump5       TEMP_ENG       329_TEMP_ENG       0.0          0.005   84.00   95.25000   90.925        16
+dump6     WHL_SPD_FL     386_WHL_SPD_FL       0.0          0.005    0.00   94.53125   34.636      3023
+dump6     WHL_SPD_FR     386_WHL_SPD_FR       0.0          0.005    0.00   94.09375   34.550      3007
+dump6     WHL_SPD_RL     386_WHL_SPD_RL       0.0          0.005    0.00   94.18750   34.476      3011
+dump6     WHL_SPD_RR     386_WHL_SPD_RR       0.0          0.005    0.00   94.43750   34.490      3015
+dump6    CF_Clu_Vanz    4F1_CF_Clu_Vanz       0.0          0.010    0.00  101.00000   37.325       203
+dump6             VS             316_VS       0.0          0.005    0.00   94.00000   34.188        95
+dump6         VS_TCU         112_VS_TCU       0.0          0.005    0.00   94.00000   34.197        95
+dump6 VS_TCU_DECIMAL 112_VS_TCU_DECIMAL       0.0          0.005    0.00    0.87500    0.352         8
+dump6              N              316_N       0.0          0.005  727.50 2492.00000 1235.710      2954
+dump6   CF_Tcu_TarGr   113_CF_Tcu_TarGr       0.0          0.005    1.00    7.00000    3.548         7
+dump6      SLOPE_TCU      113_SLOPE_TCU       0.0          0.005  -10.00    5.50000   -1.651        32
+dump6     LONG_ACCEL     220_LONG_ACCEL       0.0          0.010   -3.25    2.87000   -0.139       599
+dump6      LAT_ACCEL      220_LAT_ACCEL       0.0          0.010   -3.01    3.04000   -0.016       506
+dump6       YAW_RATE       220_YAW_RATE       0.0          0.010  -14.99   16.27000    0.383      2036
+dump6      SAS_Angle      2B0_SAS_Angle       0.0          0.010 -171.70  184.80000   -1.662      1672
+dump6       TEMP_ENG       329_TEMP_ENG       0.0          0.005   84.75   95.25000   91.452        15
+dump7     WHL_SPD_FL     386_WHL_SPD_FL       0.0          0.015    0.00    2.06250    0.003        49
+dump7     WHL_SPD_FR     386_WHL_SPD_FR       0.0          0.015    0.00    2.12500    0.003        48
+dump7     WHL_SPD_RL     386_WHL_SPD_RL       0.0          0.015    0.00    2.06250    0.003        49
+dump7     WHL_SPD_RR     386_WHL_SPD_RR       0.0          0.015    0.00    2.15625    0.003        51
+dump7    CF_Clu_Vanz    4F1_CF_Clu_Vanz       0.0          0.015    0.00    0.00000    0.000         1
+dump7             VS             316_VS       0.0          0.005    0.00    2.00000    0.001         3
+dump7         VS_TCU         112_VS_TCU       0.0          0.000    0.00    2.00000    0.001         3
+dump7 VS_TCU_DECIMAL 112_VS_TCU_DECIMAL       0.0          0.000    0.00    0.87500    0.001         8
+dump7              N              316_N       0.0          0.005  758.00  936.00000  790.294       308
+dump7   CF_Tcu_TarGr   113_CF_Tcu_TarGr       0.0          0.000    0.00   14.00000    0.075         2
+dump7      SLOPE_TCU      113_SLOPE_TCU       0.0          0.000    0.00    1.00000    0.673         3
+dump7     LONG_ACCEL     220_LONG_ACCEL       0.0          0.010   -0.80    1.46000    0.091       150
+dump7      LAT_ACCEL      220_LAT_ACCEL       0.0          0.010   -0.39    0.73000    0.126        74
+dump7       YAW_RATE       220_YAW_RATE       0.0          0.010   -0.19    0.75000    0.363        81
+dump7      SAS_Angle      2B0_SAS_Angle       0.0          0.010  -16.40   42.70000    3.313       362
+dump7       TEMP_ENG       329_TEMP_ENG       0.0          0.005   88.50   94.50000   92.324         9
+# Signal behaviour checks (step 3)
+
+Rows with mean wheel speed above 5.0 km/h only. Correlation = Pearson r.
+
+## dump1  (243038 moving rows of 286290)
+- wheel FL vs FR vs RL vs RR: max spread 0.375 km/h (median of per-row max-min)
+- R1 wheel vs CF_Clu_Vanz r=0.9995, vs VS r=0.9999, vs VS_TCU r=0.9999
+- R2 d(wheel speed)/dt vs LONG_ACCEL r=0.8986
+- R3 YAW_RATE vs (RR-RL) r=0.8825
+- R4 LAT_ACCEL vs speed*YAW_RATE r=0.8585
+- YAW_RATE vs SAS_Angle r=0.8956
+- R5 N/speed by gear (median, IQR): g1: 136.3 (134.4-159.4, n=6328), g2: 80.5 (79.7-101.4, n=32773), g3: 51.1 (50.9-51.2, n=26483), g4: 36.3 (36.2-36.6, n=10009), g5: 27.6 (27.5-27.7, n=22288), g6: 21.9 (21.8-22.1, n=92064), g7: 17.8 (17.7-17.9, n=53093)
+
+## dump2  (314375 moving rows of 378894)
+- wheel FL vs FR vs RL vs RR: max spread 0.281 km/h (median of per-row max-min)
+- R1 wheel vs CF_Clu_Vanz r=0.9991, vs VS r=0.9999, vs VS_TCU r=0.9999
+- R2 d(wheel speed)/dt vs LONG_ACCEL r=0.9246
+- R3 YAW_RATE vs (RR-RL) r=0.886
+- R4 LAT_ACCEL vs speed*YAW_RATE r=0.7692
+- YAW_RATE vs SAS_Angle r=0.9223
+- R5 N/speed by gear (median, IQR): g1: 136.1 (134.6-164.7, n=6836), g2: 80.1 (65.5-82.3, n=48551), g3: 51.1 (51.0-51.4, n=69800), g4: 36.4 (36.2-36.6, n=42678), g5: 27.6 (27.5-27.8, n=42551), g6: 21.9 (21.8-22.1, n=83921), g7: 17.8 (17.7-17.9, n=20038)
+
+## dump3  (254263 moving rows of 296330)
+- wheel FL vs FR vs RL vs RR: max spread 0.375 km/h (median of per-row max-min)
+- R1 wheel vs CF_Clu_Vanz r=0.9995, vs VS r=0.9999, vs VS_TCU r=0.9999
+- R2 d(wheel speed)/dt vs LONG_ACCEL r=0.9048
+- R3 YAW_RATE vs (RR-RL) r=0.8848
+- R4 LAT_ACCEL vs speed*YAW_RATE r=0.8654
+- YAW_RATE vs SAS_Angle r=0.8892
+- R5 N/speed by gear (median, IQR): g1: 151.5 (136.2-183.1, n=3860), g2: 80.7 (79.5-101.9, n=35925), g3: 51.1 (50.9-51.3, n=25282), g4: 36.3 (36.2-36.6, n=13124), g5: 27.6 (27.5-27.7, n=35903), g6: 21.9 (21.8-22.0, n=86753), g7: 17.9 (17.8-17.9, n=53416)
+
+## dump4  (346713 moving rows of 436402)
+- wheel FL vs FR vs RL vs RR: max spread 0.344 km/h (median of per-row max-min)
+- R1 wheel vs CF_Clu_Vanz r=0.9992, vs VS r=0.9999, vs VS_TCU r=0.9999
+- R2 d(wheel speed)/dt vs LONG_ACCEL r=0.9183
+- R3 YAW_RATE vs (RR-RL) r=0.9068
+- R4 LAT_ACCEL vs speed*YAW_RATE r=0.7934
+- YAW_RATE vs SAS_Angle r=0.916
+- R5 N/speed by gear (median, IQR): g1: 142.5 (134.7-169.7, n=7741), g2: 80.9 (79.6-105.1, n=72555), g3: 51.2 (50.9-51.5, n=44274), g4: 36.3 (36.2-36.5, n=47125), g5: 27.6 (27.5-27.8, n=69330), g6: 21.9 (21.8-22.0, n=76253), g7: 17.9 (17.7-17.9, n=29435)
+
+## dump5  (243744 moving rows of 267235)
+- wheel FL vs FR vs RL vs RR: max spread 0.375 km/h (median of per-row max-min)
+- R1 wheel vs CF_Clu_Vanz r=0.9995, vs VS r=0.9999, vs VS_TCU r=0.9999
+- R2 d(wheel speed)/dt vs LONG_ACCEL r=0.9143
+- R3 YAW_RATE vs (RR-RL) r=0.8887
+- R4 LAT_ACCEL vs speed*YAW_RATE r=0.8417
+- YAW_RATE vs SAS_Angle r=0.8993
+- R5 N/speed by gear (median, IQR): g1: 148.8 (138.0-167.1, n=4797), g2: 80.5 (76.7-90.6, n=32590), g3: 51.1 (50.9-51.5, n=17041), g4: 36.3 (36.2-36.6, n=17604), g5: 27.7 (27.5-27.8, n=12789), g6: 21.9 (21.8-22.0, n=120799), g7: 17.8 (17.7-17.9, n=38124)
+
+## dump6  (297026 moving rows of 392385)
+- wheel FL vs FR vs RL vs RR: max spread 0.281 km/h (median of per-row max-min)
+- R1 wheel vs CF_Clu_Vanz r=0.9994, vs VS r=0.9999, vs VS_TCU r=0.9999
+- R2 d(wheel speed)/dt vs LONG_ACCEL r=0.9241
+- R3 YAW_RATE vs (RR-RL) r=0.7487
+- R4 LAT_ACCEL vs speed*YAW_RATE r=0.7737
+- YAW_RATE vs SAS_Angle r=0.8538
+- R5 N/speed by gear (median, IQR): g1: 134.9 (134.2-158.8, n=13349), g2: 81.1 (79.1-115.3, n=64733), g3: 51.2 (51.0-51.5, n=36381), g4: 36.4 (36.2-36.6, n=41696), g5: 27.7 (27.5-27.8, n=29093), g6: 21.9 (21.8-22.0, n=55283), g7: 17.8 (17.7-17.9, n=56491)
+
+## dump7  (0 moving rows of 442611)
+Too little moving data; probably the idling recording.
+

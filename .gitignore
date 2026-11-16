@@ -1,0 +1,5 @@
+# raw dataset (large, not to be shared)
+data/
+.gstack/
+__pycache__/
+*.pyc
