@@ -25,7 +25,7 @@ Everything for the 5-minute proposal pitch is in [presentation/](presentation/).
 | [CAN_IDS_proposal_pitch_v4.pptx](presentation/CAN_IDS_proposal_pitch_v4.pptx) | **The final slides** (8 slides, editable). Fill in the `[bracketed]` group number, names, IDs and instructor on slides 1 and 8. |
 | [CAN_IDS_proposal_pitch_v4.pdf](presentation/CAN_IDS_proposal_pitch_v4.pdf) | The same slides as a PDF, as a backup for the projector. |
 | [speech.md](presentation/speech.md) | **What each member says.** Member 1: slides 1–2. Member 2: slides 3–5. Member 3: slides 6–8. About 5 minutes in total. |
-| [speech_bn.md](presentation/speech_bn.md) | The same speech in Bangla, for practice and understanding. Technical terms are kept in English. |
+| [speech_bn.md](presentation/speech_bn.md) | The same speech in everyday Bangla-English mix (Banglish), for practice and understanding. |
 | [terms_explained.md](presentation/terms_explained.md) | Every technical word on the slides, explained in plain language. |
 | [defense_qa.md](presentation/defense_qa.md) | Questions the teacher may ask, with short, honest answers. |
 | [defense_and_methodology.md](presentation/defense_and_methodology.md) | Longer version: the detailed methodology (data, physics, the four detectors, training, evaluation) and the critic's review. |

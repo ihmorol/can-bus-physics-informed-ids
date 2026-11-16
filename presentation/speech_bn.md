@@ -1,81 +1,77 @@
-# প্রেজেন্টেশন স্পিচ: বাংলা সংস্করণ (৫ মিনিট, ৩ জন সদস্য)
+# Presentation speech: বাংলা-English mixed version (৫ মিনিট, ৩ জন member)
 
-এটি [speech.md](speech.md)-এর আনুষ্ঠানিক বাংলা সংস্করণ। কোন স্লাইডে কী বলতে হবে তা বোঝার জন্য এবং অনুশীলনের জন্য এটি ব্যবহার করুন। প্রেজেন্টেশন ইংরেজিতে হলে মূল ইংরেজি স্পিচই ব্যবহার করুন। প্রচলিত টেকনিক্যাল শব্দগুলো (CAN bus, detector, physics, false alarm ইত্যাদি) ইংরেজিতেই রাখা হয়েছে।
+এটা [speech.md](speech.md)-এর Bangla-English mixed version, যেভাবে আমরা সাধারণত class presentation-এ কথা বলি। Practice করার জন্য, আর কোন slide-এ কী বলতে হবে সেটা বোঝার জন্য এটা use করো। Presentation পুরোপুরি English-এ হলে original `speech.md` follow করো।
 
-স্পিচটি একটি গবেষণা উপস্থাপনার প্রচলিত কাঠামো অনুসরণ করে:
-- **পুরো উপস্থাপনা:** শুরুতে কী বলা হবে তা জানানো, তারপর তা বলা, এবং শেষে সারসংক্ষেপ।
-- **প্রতিটি স্লাইড:** একটি মূল বাক্য দিয়ে শুরু, তারপর সহায়ক তথ্য, এবং শেষে পরবর্তী স্লাইড বা বক্তার কাছে হস্তান্তর।
+Structure সব slide-এ একই: শুরুতে একটা main point, তারপর supporting কথা, শেষে next speaker-কে hand over। পুরোটা মুখস্থ করার দরকার নেই, flow-টা মাথায় রাখো। মোট সময় প্রায় ৫ মিনিট।
 
-ধীরে ও স্পষ্টভাবে বলুন। মোট সময় প্রায় ৫ মিনিট।
-
-| সদস্য | স্লাইড | সময় |
+| Member | Slide | সময় |
 |---|---|---|
-| সদস্য ১ | ১, ২ | প্রায় ১ মিনিট ৪০ সেকেন্ড |
-| সদস্য ২ | ৩, ৪, ৫ | প্রায় ২ মিনিট ২৫ সেকেন্ড |
-| সদস্য ৩ | ৬, ৭, ৮ | প্রায় ১ মিনিট |
+| Member 1 | 1, 2 | প্রায় ১ মিনিট ৪০ সেকেন্ড |
+| Member 2 | 3, 4, 5 | প্রায় ২ মিনিট ২৫ সেকেন্ড |
+| Member 3 | 6, 7, 8 | প্রায় ১ মিনিট |
 
 ---
 
-## সদস্য ১: স্লাইড ১ ও ২
+## Member 1: Slide 1 ও 2
 
-**স্লাইড ১: শিরোনাম** (প্রায় ৪০ সেকেন্ড)
+**Slide 1: Title** (প্রায় ৪০ সেকেন্ড)
 
-> সম্মানিত শিক্ষকমণ্ডলী, শুভ সকাল। আমরা Group [No.]। আজ আমরা আমাদের গবেষণা প্রস্তাব উপস্থাপন করছি: Physics-Informed Intrusion Detection for Vehicle CAN Bus Networks।
-> একটি আধুনিক গাড়ির engine, brake ও steering ইউনিটগুলো CAN bus নামের একটি শেয়ার্ড নেটওয়ার্কের মাধ্যমে যোগাযোগ করে, যা যাচাই করতে পারে না কোন বার্তা কে পাঠিয়েছে।
-> আমাদের প্রস্তাবের মূল প্রশ্ন হলো: গাড়ির গতির ভৌত নিয়মগুলো কি এমন আক্রমণকারীকে শনাক্ত করতে সাহায্য করতে পারে, যে এই নেটওয়ার্কে ভুয়া তথ্য পাঠায়? আমরা ক্রমান্বয়ে সমস্যা, আমাদের ধারণা, গবেষণার ঘাটতি, পদ্ধতি এবং গবেষণা প্রশ্নগুলো উপস্থাপন করব।
+> Good morning sir. আমরা Group [No.], আর আজকে আমরা আমাদের research proposal present করছি: Physics-Informed Intrusion Detection for Vehicle CAN Bus Networks.
+> একটা modern car-এর ভেতরে engine, brake, steering-এর আলাদা আলাদা control unit থাকে। এরা সবাই CAN bus নামের একটা shared network দিয়ে communicate করে। কিন্তু এই network verify করতে পারে না যে কোন message আসলে কে পাঠিয়েছে।
+> তাই আমাদের main question হলো: গাড়ির movement-এর physical law ব্যবহার করে কি এমন attacker-কে detect করা যায়, যে এই network-এ false data inject করে? আমরা একে একে problem, আমাদের idea, research gap, method আর research question-গুলো present করব।
 
-**স্লাইড ২: সমস্যা** (প্রায় ৬০ সেকেন্ড)
+**Slide 2: Problem** (প্রায় ৬০ সেকেন্ড)
 
-> আমরা ধরে নিচ্ছি, আক্রমণকারী ইতিমধ্যে নেটওয়ার্কে প্রবেশ করেছে, যেমন একটি আক্রান্ত connected device-এর মাধ্যমে। আক্রমণকারী একটি কন্ট্রোল ইউনিটকে নিষ্ক্রিয় করে, যেমন যে ইউনিট wheel speed পাঠায়, এবং তার জায়গায় নিজেই সেই বার্তাগুলো পাঠায়।
-> চার্টে নীল রেখাটি প্রকৃত wheel speed, আর লাল রেখাটি আক্রমণকারীর পাঠানো ভুয়া মান। প্রতিটি বার্তা যথাসময়ে পৌঁছায় বলে, যেসব detector শুধু বার্তার timing পর্যবেক্ষণ করে, তারা কোনো অস্বাভাবিকতা ধরতে পারে না।
-> এই হুমকি বাস্তব। গবেষকেরা এই নেটওয়ার্কের মাধ্যমে বাণিজ্যিক গাড়ির নিয়ন্ত্রণ নেওয়া সম্ভব বলে দেখিয়েছেন, এবং wheel speed সরাসরি গাড়ির braking ও stability নিয়ন্ত্রণে ব্যবহৃত হয়।
-> মান-ভিত্তিক detector রয়েছে, তবে সাম্প্রতিক সবচেয়ে কাছাকাছি কাজটি চল্লিশ শতাংশ পর্যন্ত false alarm জানিয়েছে, যা বাস্তবে অব্যবহারযোগ্য।
-> অতএব সমস্যাটি হলো, false alarm কম রেখে ভুয়া মান শনাক্ত করা। এখন আমার সহকর্মী আমাদের প্রস্তাবিত পদ্ধতি উপস্থাপন করবেন।
-
----
-
-## সদস্য ২: স্লাইড ৩, ৪ ও ৫
-
-**স্লাইড ৩: আমাদের ধারণা** (প্রায় ৫০ সেকেন্ড)
-
-> ধন্যবাদ। আমাদের পদ্ধতি একটি পর্যবেক্ষণের ওপর ভিত্তি করে: গাড়ির সিগন্যালগুলো ভৌতভাবে পরস্পরের সাথে যুক্ত। চারটি চাকার speed অবশ্যই গাড়ির speed-এর সাথে মিলবে, speed-এর পরিবর্তন অবশ্যই পরিমাপ করা acceleration-এর সাথে মিলবে, এবং বাঁক নেওয়ার সময় বাম ও ডান চাকার speed-এর মধ্যে পার্থক্য তৈরি হয়।
-> এই সিগন্যালগুলো আসে ভিন্ন ভিন্ন কন্ট্রোল ইউনিট থেকে। তাই একটি ইউনিটে মান বদলালে তা অন্যগুলোর সাথে অসামঞ্জস্যপূর্ণ হয়ে যায়। ধরা না পড়তে হলে আক্রমণকারীকে একসাথে কয়েকটি ইউনিট নিয়ন্ত্রণে নিতে হবে, যা আরও কঠিন; এই আক্রমণও আমরা মূল্যায়ন করব।
-> উদাহরণস্বরূপ, আমরা চাকাগুলোর গড় speed-এর সাথে gearbox-এর জানানো speed তুলনা করি। পার্থক্য স্বাভাবিক ড্রাইভিংয়ের চেয়ে বেশি হলে alarm দিই।
-
-**স্লাইড ৪: গবেষণার ঘাটতি ও অবদান** (প্রায় ৪৫ সেকেন্ড)
-
-> পরবর্তী প্রশ্ন হলো, এই ধারণাটি কি নতুন? বিদ্যমান detector-গুলো দুই ভাগে বিভক্ত। X-CANIDS-এর মতো learned detector ডেটা থেকে স্বাভাবিক আচরণ শেখে, কিন্তু কোনো ভৌত জ্ঞান ব্যবহার করে না। SAID ও CADD-এর মতো physics-based detector নির্দিষ্ট প্রকৌশল নিয়ম প্রয়োগ করে।
-> আমরা যেসব গবেষণা পর্যালোচনা করেছি, তার কোনোটিই একই ডেটায় এবং একই false alarm সীমার মধ্যে এই দুই পদ্ধতির তুলনা করেনি। এই ঘাটতিটিই আমাদের গবেষণার কেন্দ্রবিন্দু; আমাদের literature review এটি নিশ্চিত করবে।
-> আমাদের অবদান তিনটি: একই ডেটায় একটি নিয়ন্ত্রিত তুলনা, physics যুক্ত করার দুটি উপায়ের পাশাপাশি মূল্যায়ন, এবং যেসব আক্রমণ physics দিয়ে শনাক্ত করা যায় না তার সুস্পষ্ট পরীক্ষা।
-
-**স্লাইড ৫: গবেষণা পদ্ধতি** (প্রায় ৫০ সেকেন্ড)
-
-> আমাদের পদ্ধতির পাঁচটি ধাপ উপরে দেখানো হয়েছে: বাস্তব গাড়ির ড্রাইভিং ডেটা, স্বাভাবিক আচরণ শেখা, physics পরীক্ষা যুক্ত করা, আক্রমণ যুক্ত করা, এবং detector-গুলোর তুলনা।
-> আমরা চারটি detector তৈরি করব। D1 শুধু physics-এর ওপর নির্ভর করে। D2 শুধু ডেটা থেকে শেখে এবং এটি আমাদের baseline। D3, D2-এর সাথে physics-সামঞ্জস্যের স্কোর অতিরিক্ত ইনপুট হিসেবে যোগ করে। D4, D2-কে এমনভাবে প্রশিক্ষণ দেয় যাতে ভৌতভাবে অসামঞ্জস্যপূর্ণ আউটপুটের জন্য শাস্তি দেওয়া হয়।
-> ন্যায্য মূল্যায়নের জন্য প্রতিটি detector শুধু স্বাভাবিক ড্রাইভিং থেকে প্রশিক্ষিত হবে, পরীক্ষার আগেই alarm threshold নির্ধারণ করা হবে, এবং পরীক্ষা হবে এমন রেকর্ডিংয়ে যা detector আগে দেখেনি। আক্রমণগুলোর মধ্যে রয়েছে freeze, gradual drift, constant offset, replay, সম্পূর্ণ message পরিবর্তন, এবং একটি physics-সামঞ্জস্যপূর্ণ আক্রমণ।
-> এখন আমার সহকর্মী আমাদের গবেষণা প্রশ্ন ও প্রত্যাশিত অবদান উপস্থাপন করবেন।
+> আমরা ধরে নিচ্ছি attacker আগে থেকেই bus-এ access পেয়ে গেছে, যেমন একটা compromised connected device-এর মাধ্যমে। এরপর সে একটা control unit-কে silent করে দেয়, ধরুন যে unit wheel speed পাঠায়, আর তার জায়গায় নিজেই সেই message-গুলো পাঠায়।
+> Chart-এ blue line-টা হলো real wheel speed, আর red line-টা attacker-এর পাঠানো falsified value। প্রতিটা message ঠিক time-এ পৌঁছায়, তাই যে detector শুধু message timing monitor করে, সে কোনো problem-ই দেখতে পায় না।
+> এই threat-টা কিন্তু real। Researcher-রা এই network দিয়ে real car control করে দেখিয়েছেন, আর wheel speed সরাসরি braking আর stability control-এ use হয়।
+> Value check করে এমন detector আছে, কিন্তু সবচেয়ে কাছের recent work প্রায় forty percent পর্যন্ত false alarm দেয়, যেটা practically use করা যায় না।
+> So, আমাদের problem হলো false alarm কম রেখে falsified value detect করা। এখন আমার teammate আমাদের proposed approach explain করবে।
 
 ---
 
-## সদস্য ৩: স্লাইড ৬, ৭ ও ৮
+## Member 2: Slide 3, 4 ও 5
 
-**স্লাইড ৬: গবেষণা প্রশ্ন ও প্রত্যাশিত অবদান** (প্রায় ৪০ সেকেন্ড)
+**Slide 3: Our idea** (প্রায় ৫০ সেকেন্ড)
 
-> ধন্যবাদ। আমাদের গবেষণা চারটি প্রশ্ন দ্বারা পরিচালিত। প্রথম এবং সবচেয়ে গুরুত্বপূর্ণ: physics কি false alarm না বাড়িয়ে শনাক্তকরণ উন্নত করে? দ্বিতীয়: physics যুক্ত করার কোন পদ্ধতিটি বেশি কার্যকর? তৃতীয়: শুধু physics-ভিত্তিক পরীক্ষাই কি যথেষ্ট? চতুর্থ: কোন আক্রমণগুলো physics দিয়ে শনাক্ত করা যায় না?
-> আমরা ফলাফল সম্পর্কে আগাম কোনো অনুমান করছি না; নেতিবাচক ফলাফলও গাড়ির intrusion detection system-এর নির্মাতাদের জন্য মূল্যবান হবে।
-> আমাদের গবেষণার পরিসর সচেতনভাবে সীমিত: একটি গাড়ির একটি পাবলিক ডেটাসেট, এবং আক্রমণগুলো চলন্ত গাড়িতে নয়, রেকর্ডিংয়ের মধ্যে যুক্ত করা হবে।
+> Thank you. আমাদের approach একটা simple observation-এর ওপর based: গাড়ির signal-গুলো physically একটা আরেকটার সাথে linked। চার চাকার speed অবশ্যই vehicle speed-এর সাথে match করবে, speed change হলে সেটা measured acceleration-এর সাথে match করবে, আর turn নিলে left আর right wheel speed-এর মধ্যে difference তৈরি হয়।
+> এই signal-গুলো আসে different control unit থেকে। তাই একটা unit-এর value change করলে সেটা বাকিগুলোর সাথে আর consistent থাকে না। ধরা না খেতে হলে attacker-কে একসাথে কয়েকটা unit compromise করতে হবে, যেটা অনেক বেশি কঠিন, আর এই case-টাও আমরা evaluate করব।
+> Example হিসেবে: আমরা চার চাকার average speed-কে gearbox-এর report করা speed-এর সাথে compare করি। Difference যদি normal driving-এর চেয়ে অনেক বেশি হয়, তাহলে alarm দিই।
 
-**স্লাইড ৭: তথ্যসূত্র** (প্রায় ৫ সেকেন্ড, তালিকাটি পড়ে শোনানোর প্রয়োজন নেই)
+**Slide 4: Research gap ও contribution** (প্রায় ৪৫ সেকেন্ড)
 
-> এই প্রস্তাবের তথ্যসূত্রগুলো এখানে দেওয়া হয়েছে।
+> এখন প্রশ্ন হলো, এই idea কি নতুন? Existing detector-গুলো মূলত দুই ধরনের। X-CANIDS-এর মতো learned detector data থেকে normal behaviour শেখে, কিন্তু কোনো physics use করে না। আর SAID, CADD-এর মতো physics-based detector fixed engineering rule apply করে।
+> আমরা যত study review করেছি, তার কোনোটাই এই দুই approach-কে same data আর same false alarm limit-এ compare করেনি। এই gap-টাই আমাদের study-র focus, আর আমাদের literature review এটা confirm করবে।
+> আমাদের contribution তিনটা: same data-তে একটা controlled comparison, physics add করার দুইটা way side by side evaluate করা, আর physics কোন attack detect করতে পারে না সেটার একটা clear test।
 
-**স্লাইড ৮: ধন্যবাদ** (প্রায় ১৫ সেকেন্ড)
+**Slide 5: Methodology** (প্রায় ৫০ সেকেন্ড)
 
-> সংক্ষেপে বলতে গেলে, গাড়ির physics এমন ভুয়া তথ্য প্রকাশ করতে পারে যা timing-ভিত্তিক পরীক্ষায় ধরা পড়ে না। আমাদের গবেষণা এই দাবিটি ন্যায্য ও কঠোরভাবে যাচাই করবে। আপনাদের মনোযোগের জন্য ধন্যবাদ। আপনাদের প্রশ্ন ও মতামত সাদরে গ্রহণ করব।
+> আমাদের methodology-র পাঁচটা stage উপরে দেখানো আছে: real vehicle-এর driving data, normal behaviour শেখা, physics check add করা, attack inject করা, আর detector-গুলো compare করা।
+> আমরা চারটা detector বানাব। D1 শুধু physics-এর ওপর depend করে। D2 শুধু data থেকে শেখে, এটা আমাদের baseline। D3, D2-এর সাথে physics consistency score extra input হিসেবে add করে। আর D4, D2-কে এমনভাবে train করে যাতে physically inconsistent output দিলে penalty পায়।
+> Evaluation fair রাখতে প্রতিটা detector শুধু normal driving-এ train হবে, testing-এর আগেই alarm threshold fix করা থাকবে, আর test হবে এমন recording-এ যেটা detector আগে কখনো দেখেনি। Attack-গুলোর মধ্যে আছে freeze, gradual drift, constant offset, replay, whole message change, আর একটা physics-consistent attack।
+> এখন আমার teammate আমাদের research question আর expected contribution present করবে।
 
 ---
 
-## শ্রোতাদের যে তিনটি মূল বার্তা মনে রাখা উচিত
-১. CAN bus প্রতিটি বার্তাকে বিশ্বাস করে। তাই স্বাভাবিক timing-এ পাঠানো ভুয়া মান শনাক্ত করা কঠিন।
-২. ভৌত নিয়ম গাড়ির সিগন্যালগুলোকে পরস্পরের সাথে যুক্ত রাখে। তাই একটি ভুয়া মান বাকিগুলোর সাথে অসামঞ্জস্যপূর্ণ হয়ে পড়ে।
-৩. আমাদের অবদান হলো learning, physics এবং দুটির সমন্বয়ের একটি ন্যায্য তুলনা, যার মধ্যে physics যে আক্রমণগুলো শনাক্ত করতে পারে না সেগুলোর পরীক্ষাও রয়েছে।
+## Member 3: Slide 6, 7 ও 8
+
+**Slide 6: Research questions ও expected contribution** (প্রায় ৪০ সেকেন্ড)
+
+> Thank you. আমাদের study চারটা research question follow করে। First, আর সবচেয়ে important: false alarm না বাড়িয়ে physics কি detection improve করে? Second, physics add করার কোন method-টা বেশি effective? Third, শুধু physics check দিয়েই কি যথেষ্ট? আর fourth, কোন attack-গুলো physics দিয়ে কখনোই detect করা যায় না?
+> Result কী হবে সেটা আমরা আগে থেকে predict করছি না; negative result আসলেও সেটা vehicle intrusion detection system যারা design করেন তাদের জন্য valuable।
+> আমাদের scope-টা আমরা ইচ্ছা করেই limited রেখেছি: একটা vehicle-এর একটা public dataset, আর attack-গুলো moving car-এ না, recording-এর ভেতরে inject করা হবে।
+
+**Slide 7: References** (প্রায় ৫ সেকেন্ড, list পড়ার দরকার নেই)
+
+> এই proposal-এর reference-গুলো এখানে দেওয়া আছে।
+
+**Slide 8: Thank you** (প্রায় ১৫ সেকেন্ড)
+
+> সংক্ষেপে বললে: গাড়ির physics এমন falsified data ধরতে পারে, যেটা timing-based check miss করে, আর আমাদের study এই claim-টা fair আর rigorous ভাবে test করবে। Thank you for your attention. আপনাদের যেকোনো question বা feedback আমরা welcome করছি।
+
+---
+
+## যে তিনটা main message audience-এর মনে থাকা উচিত
+১. CAN bus সব message-কে trust করে, তাই normal timing-এ পাঠানো falsified value detect করা কঠিন।
+২. Physical law গাড়ির signal-গুলোকে একসাথে link করে রাখে, তাই একটা falsified value বাকিগুলোর সাথে mismatch করে।
+৩. আমাদের contribution হলো learning, physics আর দুটোর combination-এর একটা fair comparison, যার মধ্যে physics যে attack ধরতে পারে না সেগুলোর test-ও আছে।
