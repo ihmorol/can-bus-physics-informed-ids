@@ -1,73 +1,79 @@
 # Presentation speech (5 minutes, 3 members)
 
-Read this aloud a few times; don't memorise it word for word. Times assume a calm pace of about 130 words per minute. Total: about 4 min 50 s.
+A formal script for the proposal presentation. It follows the standard structure for a research talk:
+- **Whole talk:** state the plan at the start, deliver it, and summarise at the end.
+- **Each slide:** open with one headline sentence, give the supporting points, and close with a hand-over to the next slide or speaker.
+
+Speak clearly at a steady pace of about 140 words per minute. Total time is about 5 minutes. Rehearse until it sounds natural; do not read it word for word.
 
 | Member | Slides | Time |
 |---|---|---|
-| Member 1 | 1, 2 | about 1 min 25 s |
-| Member 2 | 3, 4, 5 | about 2 min 20 s |
-| Member 3 | 6, 7, 8 | about 1 min 05 s |
+| Member 1 | 1, 2 | about 1 min 40 s |
+| Member 2 | 3, 4, 5 | about 2 min 25 s |
+| Member 3 | 6, 7, 8 | about 1 min 00 s |
 
 ---
 
 ## Member 1: slides 1 and 2
 
-**Slide 1: Title** (about 20 s)
+**Slide 1: Title** (about 40 s)
 
-> Good morning. We are Group [No.]. Our project is physics-informed intrusion detection for the vehicle CAN bus.
-> Inside a modern car, the engine, brakes, gearbox and steering units all talk over one shared network called the CAN bus. This network has one big weakness: it cannot check who sent a message. So our question is simple: can the car's own physics help us catch an attacker who sends false values on it?
+> Good morning, respected faculty members. We are Group [No.], and we present our research proposal: Physics-Informed Intrusion Detection for Vehicle CAN Bus Networks.
+> Inside a modern vehicle, the engine, brake and steering units communicate over a shared network, the CAN bus, which cannot verify who sent a message.
+> Our proposal asks one question: can the physical laws of a vehicle's motion help detect an attacker who injects false data into this network? We will cover the problem, our idea, the research gap, our method and our research questions.
 
-**Slide 2: The problem** (about 65 s)
+**Slide 2: Problem** (about 60 s)
 
-> Here is the attack we care about. Our threat model is this: the attacker is already on the bus, for example through a hacked connected device. It silences one unit, say the one that reports wheel speed, and sends that unit's messages itself.
-> In the chart, the blue line is the real wheel speed. The red line is what the attacker sends: a frozen value. The message still arrives exactly on time, so detectors that only watch message timing see nothing wrong.
-> This is not just theory. Researchers have already taken control of real cars through this network. And signals like wheel speed feed the braking and stability systems.
-> Detectors that read the values do exist, but the closest recent one reports up to about 40 percent false alarms. Nobody can use a detector that cries wolf that often.
-> So we need a detector that catches false values without too many false alarms. [Member 2] will explain our idea.
+> We assume an attacker who has already gained access to the bus, for example through a compromised connected device. The attacker silences one control unit, such as the unit that reports wheel speed, and transmits its messages in its place.
+> In the chart, the blue line is the true wheel speed; the red line is the falsified value. Because every message still arrives on time, detectors that monitor only message timing observe nothing abnormal.
+> This threat is real. Researchers have demonstrated control of production vehicles through this network, and wheel speed directly informs braking and stability control.
+> Value-based detectors exist, but the closest recent work reports up to forty percent false alarms, which is impractical.
+> The problem, therefore, is to detect falsified values while keeping false alarms low. My colleague will now present our proposed approach.
 
 ---
 
 ## Member 2: slides 3, 4 and 5
 
-**Slide 3: Our idea** (about 45 s)
+**Slide 3: Our idea** (about 50 s)
 
-> Our idea comes from basic vehicle physics. A car's signals are not independent. The four wheel speeds must match the vehicle speed. Speeding up must match the measured acceleration. Turning shows up as a speed difference between the left and right wheels.
-> These signals come from different units. So if an attacker changes one of them, it no longer agrees with the others. To hide, the attacker would have to fake several units at the same time, which is much harder, and we test that case too.
-> At ground level, the check is simple. For example, compare the average wheel speed with the speed the gearbox reports. If the gap is much bigger than in normal driving, raise an alarm.
+> Thank you. Our approach rests on one observation: a vehicle's signals are physically linked. The four wheel speeds must agree with the vehicle's speed, a change in speed must agree with the measured acceleration, and a turn produces a difference between the left and right wheel speeds.
+> These signals come from different control units. A value falsified in one unit therefore becomes inconsistent with the others. To stay hidden, an attacker must compromise several units at once, a harder attack that we also evaluate.
+> For example, we compare the average wheel speed with the speed reported by the gearbox, and raise an alarm when the difference exceeds what normal driving produces.
 
-**Slide 4: Gap and what is new** (about 45 s)
+**Slide 4: Research gap and contribution** (about 45 s)
 
-> Is this new? Existing work falls into two groups. Learned detectors, like X-CANIDS, learn normal behaviour from data but use no physics. Physics detectors, like SAID and CADD, check vehicle movement with fixed, hand-made rules.
-> In the work we have read, nobody has put both on the same data and asked fairly: what does physics actually add? That empty corner is our study. One paper uses physics inside a learned CAN detector, but it does not make this comparison. Our literature review will confirm the gap.
-> What is new for us: a controlled comparison on the same data with the same false-alarm limit, two ways of adding physics tested side by side, and an honest test of the attacks physics cannot catch.
+> The next question is whether this idea is new. Existing detectors fall into two groups. Learned detectors, such as X-CANIDS, model normal behaviour from data but use no physical knowledge. Physics-based detectors, such as SAID and CADD, apply fixed engineering rules.
+> In the studies we have reviewed, no work compares these approaches on the same data under the same false-alarm limit. This gap is the focus of our study; our literature review will confirm it.
+> Our contribution is threefold: a controlled comparison on identical data, a side-by-side evaluation of two ways to integrate physics, and an explicit test of the attacks that physics cannot detect.
 
-**Slide 5: How we will do it** (about 50 s)
+**Slide 5: Methodology** (about 50 s)
 
-> We use public driving recordings from a real car. The plan is shown on top: learn what normal driving looks like, add the physics checks, insert attacks into the recordings, and compare the detectors.
-> We build four detectors. D1 uses physics only. D2 learns from data only; it is our baseline. D3 is D2 that is also told how well the physics holds. D4 is D2 trained to respect the physics.
-> To keep the test fair, every detector learns only from normal driving, its alarm level is fixed before testing, and it is tested on drives it has never seen. The attacks are freezing, slow drift, offset, replay, changing a whole message, and one attack that keeps the physics consistent. [Member 3] will tell you what we expect to learn.
+> Our methodology has five stages, shown at the top: real-vehicle driving data, learning normal behaviour, adding physics checks, injecting attacks, and comparing detectors.
+> We will build four detectors. D1 relies on physics alone. D2 learns from data alone and serves as our baseline. D3 adds physics-consistency scores to D2 as extra inputs. D4 trains D2 with a penalty for physically inconsistent output.
+> For a fair evaluation, every detector is trained only on normal driving, its alarm threshold is fixed before testing, and it is tested on recordings it has never seen. The attacks include freezing, gradual drift, constant offset, replay, whole-message modification, and a physics-consistent attack.
+> My colleague will now present our research questions and expected contribution.
 
 ---
 
 ## Member 3: slides 6, 7 and 8
 
-**Slide 6: Research questions and contribution** (about 50 s)
+**Slide 6: Research questions and expected contribution** (about 40 s)
 
-> This gives us four questions. First, the main one: does physics help catch more attacks without more false alarms? Second, which way of adding physics works better? Third, are the physics checks alone already enough? Fourth, which attacks can physics never see?
-> We do not guess the answer. Even "physics does not help" is a useful result for anyone building intrusion detection for cars.
-> We are also clear about our limits. We use one public dataset from one real car, and the attacks are inserted into recordings, not run on a moving car. We need no hardware and no budget.
+> Thank you. Our study is guided by four research questions. First, and most important: does physics improve detection without increasing false alarms? Second, which method of integrating physics is more effective? Third, are physics checks alone sufficient? Fourth, which attacks remain invisible to physics?
+> We do not predict the outcome; even a negative result would be valuable to designers of vehicle intrusion detection systems.
+> Our scope is deliberately limited: one public dataset from a single vehicle, with attacks injected into recordings rather than performed on a moving car.
 
-**Slide 7: References** (about 3 s; don't read it)
+**Slide 7: References** (about 5 s; do not read the list)
 
-> Our references are listed here.
+> The references supporting this proposal are listed here.
 
-**Slide 8: Thank you** (about 12 s)
+**Slide 8: Thank you** (about 15 s)
 
-> To sum up: a car's physics may expose false values that timing checks miss, and we will test, fairly, whether it really helps. Thank you. We are happy to take your questions.
+> To summarise: a vehicle's physics may reveal falsified data that timing-based checks miss, and our study will test this claim fairly and rigorously. Thank you for your attention. We welcome your questions and feedback.
 
 ---
 
-## Key messages the panel must remember
-1. The CAN bus trusts every message, so false values with normal timing are hard to catch.
-2. Physics links the signals, so a single false value stands out.
-3. Our contribution is a fair comparison of learning, physics, and both together, including the attacks physics cannot catch.
+## Three messages the audience should remember
+1. The CAN bus trusts every message, so falsified values sent at normal timing are hard to detect.
+2. Physical laws link a vehicle's signals, so a single falsified value becomes inconsistent with the others.
+3. Our contribution is a fair comparison of learning, physics, and both combined, including the attacks physics cannot detect.
