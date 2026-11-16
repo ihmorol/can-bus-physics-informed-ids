@@ -21,9 +21,9 @@ The deck uses only one number: "up to ~40% false alarms" [3]. It is there becaus
 
 | Speaker | Slides | Time |
 |---|---|---|
-| 1 | 1 Title, 2 Problem | 20 s + 65 s |
-| 2 | 3 Idea, 4 Gap and novelty, 5 Approach | 45 s + 45 s + 50 s |
-| 3 | 6 Questions, 7 References (shown only), 8 Thank you | 50 s + 3 s + 12 s |
+| 1 | 1 Title, 2 Problem | 40 s + 60 s |
+| 2 | 3 Idea, 4 Gap and novelty, 5 Approach | 50 s + 45 s + 50 s |
+| 3 | 6 Questions, 7 References (shown only), 8 Thank you | 40 s + 5 s + 15 s |
 
 The words to say are in [speech.md](speech.md).
 
