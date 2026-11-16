@@ -3,3 +3,5 @@ data/
 .gstack/
 __pycache__/
 *.pyc
+# Office lock files
+~$*
