@@ -63,3 +63,36 @@ On normal dump2, 0.041% of moving rows were above the threshold. Conclusion: the
 - **Label pitfall:** in the signal files `label = 1` marks only 5 ms rows where an attack frame arrived (about 12% for 386h), but about 96 to 98% of window rows carry altered values. For the step 12 side check, use the 480 to 1440 s window as the attack interval, not the per-row label.
 
 **Design fix from the threat model (step 6).** An attacker who masquerades message 386h controls all four wheel speeds at once, so editing one wheel only is the weakest attacker, and the wheel-vs-wheel check alone would miss a whole-message edit. Added a "whole message" attack (all four wheels edited together, other units' speed signals untouched) to step 6. Cross-message relations (wheels vs `VS`, `VS_TCU`, `CF_Clu_Vanz`, which come from other control units) are what catch it.
+
+## 2026-11-22: Novelty claim revised after supervisor feedback
+
+**Trigger.** At the proposal presentation the supervisor questioned our claim that physics-based intrusion detection had not been done. She was right. The slides split earlier work into "learned detectors" and "physics rule checkers" and implied nobody had combined the two.
+
+**What we checked** (17 sources, about 12 targeted web searches; not a systematic review; read levels are in `project_proposal.md` section 13):
+- Physics rule checkers on real cars exist: SAID [7], CADD [8].
+- Physics combined with learning exists: CAID for in-car signals [14], EV powertrain [15], platoons [13][16].
+- **Closest prior work: Philip et al. [13]** (`references/ISI_2026_Princy.pdf`, read in full). Same LSTM with and without a physics loss, trained on normal data only. Physics raised overall F1 from 93.86% to 95.74% and AUROC from 97.29% to 98.33%. Data: truck simulator plus brake hardware rig (platoon V2V states, not in-car CAN). Threshold: F1-optimal on validation data that contains attacks. No physics-only baseline, no physics-consistent attacker.
+- Nothing physics-informed was found on X-CANIDS [1]. Zhao et al. [17] say "physical semantics" but mean signal meaning, not physics equations.
+
+**Decision.** The research questions, data, four detectors and evaluation rules stay as they are. Only the framing changes:
+- The contribution is now: test whether the physics gain reported in [13] carries over to a public real-car CAN dataset, with a physics-only baseline, thresholds fixed on normal driving only, and a physics-consistent attacker.
+- Removed claims: "first physics-informed CAN detector", "physics-based detection has not been done", "first with/without-physics comparison". Listed under "May not claim" in `project_proposal.md` section 14.
+- D4 is described as the same idea as [13] (physics penalty in training), applied to an autoencoder. Our choice to keep the autoencoder (same family as [1][4]) instead of switching to [13]'s forecasting LSTM; a forecasting variant is a possible extension only.
+- Our attack shapes map to [13]'s names: offset = bias, drift = ramp, freeze = freeze, replay = replay, consistent group = scaling of all related signals. We do not use their sinusoidal, FDI or composite attacks (our choice, to keep the core small).
+
+**Still to confirm before citing:** the venue of [13] (the PDF does not print it; "ISI 2026" is only the file name); year and venue of [14]; [16] is known only through [13]'s description.
+
+**Documents.** New: `proposal/proposal_v2.md` (2 to 3 page revised proposal) and `proposal/figures/methodology_flowchart.*` (built with the `ihmorol/methodology-flowchart` skill from steps 2 to 14 of the implementation guide). The Stage 1 slides, speech and Q&A in `presentation/` were already presented and are left unchanged as a record; their "two groups" framing is superseded by this entry.
+
+## 2026-11-23: Literature review draft; CADD row corrected
+
+**Trigger.** Writing the Stage 2 literature-review section (`literature_review.md`) meant re-reading the key passages of [1], [3], [4], [6], [7] and [8] (open-access PDFs) alongside [13]. Page and table locators in that file are PDF pages of the consulted versions.
+
+**Correction.** `project_proposal.md` section 5 said CADD [8] had "no learned-detector comparison". That was wrong. CADD's authors reimplemented an LSTM-based detector (PID-Piper) and a correlation detector (EVAD) on the same training data, in CarSim with varied road slope and friction. PID-Piper caught under 30.7% of attacks at a false-positive rate near CADD's (about 4%) and went above 90% false positives when tuned to CADD's detection rate ([8] PDF p. 12, Fig. 11). With extra slope training data it still had a 66.95% false-positive rate (PDF p. 19, Table 11). The authors read this as learning without physics failing when conditions change (PDF p. 12).
+
+**What changed.** The [8] row in `project_proposal.md` section 5, the physics-only bullet in section 6, the [8] read level in section 13, and gap item 2 in `proposal/proposal_v2.md`. The gap itself stands: [8] has no physics-informed learner and tests its learned baseline only in simulation. Its result supports our expectation that physics matters most when test conditions differ from training.
+
+**Other findings from the re-read (no design change yet):**
+- [13] uses its physics residuals in the anomaly score at inference as well as in the training loss (PDF p. 4, §IV-D). Its reported gain cannot be credited to the training loss alone. D4 adds physics only to the training loss, so D4 is not an exact copy of [13]. Decide whether to say so or add a residual-scoring variant.
+- [13] gives no false-positive rate in the text and no spread across training runs (Table III, one value per cell).
+- The other numbers quoted for [1], [3], [7] and [8] in section 5 matched the papers.

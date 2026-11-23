@@ -6,19 +6,23 @@ CSE 4531 Computer Security research project, UIU, Fall 2026.
 
 > On a real car's decoded CAN signals, does adding known physical relations to an attack detector improve detection of signal-tampering attacks, at the same false-alarm budget, compared with a detector that only learns from data?
 
-## The two working files
+**Where this sits (revised 2026-11-22).** Physics-informed attack detection already exists, including a with-and-without-physics comparison on simulated vehicle platoons [13]. We test whether that gain holds on a public real-car CAN dataset under stricter rules. We do not claim to be first. Reasons and sources: [decisions.md](decisions.md), entry of 2026-11-22.
+
+## The working files (source of truth)
 
 | File | Use it for |
 |---|---|
-| [project_proposal.md](project_proposal.md) | Understanding the project: motivation, background, related work, gap, research questions, scope, data, method, evaluation, risks, slide outline, likely questions. |
+| [project_proposal.md](project_proposal.md) | Understanding the project: motivation, background, related work, gap, research questions, scope, data, method, evaluation, risks, likely questions, and how far each source was read. |
+| [proposal/proposal_v2.md](proposal/proposal_v2.md) | The revised 2 to 3 page proposal (short version of the file above). |
+| [proposal/figures/methodology_flowchart.pdf](proposal/figures/methodology_flowchart.pdf) | The whole method on one page. Also `.svg`, `-preview.png`, and the `.json` spec to edit it. |
 | [glossary.md](glossary.md) | Short plain explanations of every technical term used in the other two files. |
 | [implementation_guide.md](implementation_guide.md) | Doing the project: fourteen steps from setup to final results, each with what to do, what to check, and when it is done. |
 
-If an idea is not in these two files, it is out of scope until the files are changed on purpose.
+If an idea is not in `project_proposal.md` or `implementation_guide.md`, it is out of scope until those files are changed on purpose and the change is logged in `decisions.md`.
 
-## Proposal presentation (Stage 1): start here if you are presenting
+## Proposal presentation (Stage 1, already presented)
 
-Everything for the 5-minute proposal pitch is in [presentation/](presentation/).
+Everything for the 5-minute proposal pitch is in [presentation/](presentation/). Kept as a record and not updated. Its gap framing ("learned detectors or physics rules, nobody combined them") is **superseded**; use `project_proposal.md` for the current position.
 
 | File | Use it for |
 |---|---|
@@ -43,12 +47,13 @@ Suggested order for a new member: speech → terms explained → defence Q&A →
 | [results/](results/) | Data checks so far: file inventory, signal check and signal plots. No detector results yet. |
 | [src/](src/) | Code. `inventory.py` checks the data files; `scratch/` holds a rough feasibility test (not a result). |
 | [course/](course/) | Course catalogue and marking rubric. |
-| [references/](references/) | Papers we have as files. `ISI_2026_Princy.pdf` is background on physics-informed detection for vehicle platoons; it is related work, not our method. |
+| [references/](references/) | Papers we have as files. `ISI_2026_Princy.pdf` is Philip et al. [13], the closest prior work: the same network with and without a physics loss, on simulated platoon data. We test whether its finding holds on real-car CAN data. Venue still to confirm. |
 | `data/` | The dataset (not in Git; download it yourself from IEEE DataPort, see `implementation_guide.md` step 2). |
 
 ## Status
 
-- Proposal slides: done (v4, see above).
+- Proposal slides: presented (v4, see above).
+- Novelty claim revised after supervisor feedback; revised proposal and methodology flowchart in `proposal/`.
 - Dataset: downloaded to `data/` (not to be shared). Steps 2 and 3 done: all needed signals exist and behave sensibly; see `decisions.md` and `results/`.
 - Next: steps 4 and 5 (split the recordings, fit the physical relations, apply the gate).
 - No detector has been built and no experiment has been run.

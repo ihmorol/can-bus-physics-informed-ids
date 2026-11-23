@@ -1,0 +1,82 @@
+{
+  "name": "methodology_flowchart",
+  "title": "CAN IDS methodology",
+  "caption": "Four detectors, with and without vehicle physics, are built from normal driving only, judged at thresholds frozen before testing, and compared on attacks injected into an unseen real-car recording.",
+  "page": "a4-landscape",
+  "writing": {"forbid_dashes": true, "banned_words": [], "max_title_words": 5},
+  "elements": [
+    {"type": "group", "id": "g1", "x": 46, "y": 24, "w": 1108, "h": 136, "tab": "1 · Data and physics"},
+    {"type": "group", "id": "g2", "x": 46, "y": 196, "w": 370, "h": 250, "tab": "2 · Attack sets"},
+    {"type": "group", "id": "g3", "x": 432, "y": 196, "w": 722, "h": 250, "tab": "3 · Detectors, per seed"},
+    {"type": "group", "id": "g4", "x": 46, "y": 482, "w": 1108, "h": 350, "tab": "4 · Test"},
+
+    {"type": "row", "y": 46, "h": 76, "x0": 66, "x1": 950, "gap": 24, "items": [
+      {"type": "box", "id": "data", "tone": "peach", "number": 1, "title": "X-CANIDS signals", "size": 12,
+       "lines": ["7 recordings, 688 signals", "checked: 5 ms grid, no gaps"]},
+      {"type": "box", "id": "split", "tone": "peach", "number": 2, "title": "Split by recording", "size": 12,
+       "lines": ["train, validation, test", "recording 6: test only"]},
+      {"type": "box", "id": "fit", "tone": "purple", "number": 3, "title": "Fit relations", "size": 12,
+       "lines": ["R1 to R5, least squares, ≥ 5 km/h", "keep if R^{2} ≥ 0.9 (our choice)"]},
+      {"type": "diamond", "id": "kept", "w": 200, "title": "Any relation kept?", "lines": ["on validation"]}
+    ]},
+    {"type": "box", "id": "stop", "x": 974, "y": 61, "w": 160, "h": 46, "tone": "red", "title": "Stop and re-plan",
+     "size": 12, "lines": ["talk to the instructor"]},
+    {"type": "arrow", "from": "kept.right", "to": "stop.left", "label": "NO"},
+
+    {"type": "box", "id": "inject", "x": 66, "y": 218, "w": 330, "h": 76, "tone": "peach", "number": 4, "title": "Attack injector",
+     "lines": ["offset, drift, freeze, replay", "whole message, consistent group"]},
+    {"type": "box", "id": "copies", "x": 66, "y": 330, "w": 330, "h": 76, "tone": "peach", "number": 5, "title": "Attacked test copies",
+     "lines": ["sizes 0.5×, 2×, 5× normal spread", "10 s attacks, fixed seed"]},
+    {"type": "arrow", "from": "inject.bottom", "to": "copies.top"},
+    {"type": "arrow", "from": "split.bottom", "to": "inject.top@0.8", "via_y": 178, "label": "test recording", "label_at": [404, 150], "label_anchor": "start"},
+
+    {"type": "frame", "id": "dets", "x": 452, "y": 218, "w": 682, "h": 104, "tone": "blue", "number": 6, "title": "Four detectors, same inputs",
+     "cell_arrows": false, "cells": [
+       {"title": "D1", "line": "physics only"},
+       {"title": "D2", "line": "autoencoder"},
+       {"title": "D3", "line": "D2 + violation inputs"},
+       {"title": "D4", "line": "D2 + *λ* × physics loss"}]},
+    {"type": "arrow", "from": "kept.bottom", "to": "dets.top", "label": "YES: kept relations", "label_at": [850, 176], "label_anchor": "start"},
+
+    {"type": "row", "y": 356, "h": 76, "x0": 452, "x1": 1134, "gap": 24, "items": [
+      {"type": "box", "id": "train", "tone": "green", "number": 7, "title": "Train models", "size": 12,
+       "lines": ["training drives only", "*λ* picked on validation"]},
+      {"type": "diamond", "id": "seeds", "w": 200, "title": "All seeds done?", "lines": ["5 seeds, 3 in core"]},
+      {"type": "box", "id": "thr", "tone": "cyan", "number": 8, "title": "Freeze thresholds", "size": 12,
+       "lines": ["99.9th pct, normal validation", "saved before any test"], "no_arrow_in": true}
+    ]},
+    {"type": "arrow", "from": "dets.bottom@0.1584", "to": "train.top"},
+    {"type": "arrow", "from": "seeds.top", "to": "dets.bottom", "style": "loop", "label": "NO: next seed", "label_side": "right"},
+    {"type": "arrow", "from": "seeds.right", "to": "thr.left", "label": "YES"},
+
+    {"type": "row", "y": 504, "h": 76, "x0": 66, "x1": 1134, "gap": 24, "items": [
+      {"type": "box", "id": "score", "tone": "gray", "number": 9, "title": "Score test data", "size": 12,
+       "lines": ["recording 6 with our edits", "normal and idle drives too"]},
+      {"type": "box", "id": "metrics", "tone": "gray", "number": 10, "title": "Compute the metrics", "size": 12,
+       "lines": ["detection rate, false alarms per hour", "AUROC, delay, spread over seeds"]},
+      {"type": "diamond", "id": "gain", "w": 240, "title": "Gain above seed spread?", "lines": ["D3, D4 against D2"]},
+      {"type": "box", "id": "locate", "tone": "purple", "number": 11, "title": "Locate the gain", "size": 12,
+       "lines": ["by attack, size and target", "which relation fired"]}
+    ]},
+    {"type": "arrow", "from": "copies.bottom@0.3", "to": "score.top@0.4", "label": "attacked copies", "label_at": [176, 470], "label_anchor": "start"},
+    {"type": "arrow", "from": "thr.bottom", "to": "score.top@0.85", "via_y": 464, "label": "frozen thresholds", "label_at": [600, 458], "label_anchor": "start"},
+
+    {"type": "box", "id": "side", "x": 66, "y": 620, "w": 528, "h": 76, "tone": "cyan", "number": 12, "title": "Side check",
+     "lines": ["the dataset's own attacks on recording 6", "reported in a separate table"]},
+    {"type": "arrow", "from": "score.bottom", "to": "side.top@0.2386", "style": "dashed"},
+
+    {"type": "box", "id": "nogain", "x": 618, "y": 620, "w": 240, "h": 76, "tone": "red", "title": "No gain found",
+     "size": 12, "lines": ["reported as a result", "not hidden"]},
+    {"type": "box", "id": "rqs", "x": 882, "y": 620, "w": 252, "h": 76, "tone": "purple", "number": 13, "title": "Answer RQ2 to RQ4", "size": 12,
+     "lines": ["inputs vs loss, physics only", "attacks nobody caught"]},
+    {"type": "arrow", "from": "gain.bottom", "to": "nogain.top", "label": "NO", "label_side": "right"},
+    {"type": "arrow", "from": "locate.bottom", "to": "rqs.top"},
+    {"type": "arrow", "from": "nogain.right", "to": "rqs.left"},
+
+    {"type": "box", "id": "paper", "x": 66, "y": 736, "w": 1068, "h": 76, "tone": "orange", "number": 14, "title": "Paper and package", "thick": true,
+     "lines": ["one results table per research question, every number traced to a saved results file",
+               "code, split, fitted relations, thresholds and the decisions log; dataset files not shared"]},
+    {"type": "arrow", "from": "side.bottom", "to": "paper.top@0.2472", "style": "dashed"},
+    {"type": "arrow", "from": "rqs.bottom", "to": "paper.top@0.882"}
+  ]
+}
