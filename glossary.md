@@ -10,7 +10,7 @@ One short paragraph per term: what it is, and what you need to know for our work
 | Steps 2 to 5 (data and relations) | decoding file, the speed signals, accelerations, yaw rate, gear ratio, wheel slip, fitting constants, correlation and R², parquet, 5 ms grid |
 | Steps 6 to 9 (attacks and detectors) | signal tampering, window, rescaling, reconstruction error, loss and penalty, trainable parameters, seed |
 | Steps 10 to 13 (results) | percentile, alarm event, AUROC, detection delay, precision, median/IQR, spread across seeds, baseline, distribution shift, sensitivity check |
-| Writing the paper | novelty, preprint/peer review, replication |
+| Writing the paper | novelty, preprint/peer review, replication, PI-LSTM |
 
 ---
 
@@ -130,11 +130,13 @@ One short paragraph per term: what it is, and what you need to know for our work
 
 **Gap and candidate gap.** A gap is something not yet studied. Ours is a *candidate* gap: we have not found it done, but have not searched everything. The literature review must confirm it.
 
-**Novelty.** What our work adds that is new. Ours could be the controlled comparison of four detectors on the same public data, not a new method.
+**Novelty.** What our work adds that is new. Not physics-informed detection itself (that exists) and not a new method. Ours is testing whether a physics gain reported on simulated platoon data [13] holds on real-car CAN data, with a physics-only baseline, thresholds set on normal driving only, and an attacker who keeps physics consistent.
 
 **Preprint, arXiv, peer review.** A preprint is a paper posted publicly (often on arXiv) before experts check it. Peer review is that check by experts before a journal or conference publishes it. Preprint numbers are weaker evidence; say so when citing them.
 
-**Replication.** Repeating someone else's study, often on new data. If our gap turns out to be already done, our project becomes a replication, which is still valid coursework.
+**Replication.** Repeating someone else's study, often on new data. Our project is already close to this: it re-tests the idea of [13] in a new setting. If someone has done it on CAN data too, it becomes a plain replication, which is still valid coursework.
+
+**PI-LSTM (physics-informed LSTM).** The detector in [13]: an LSTM (a network for sequences) trained to predict the next platoon states, with an extra training penalty when its predictions break vehicle physics. Our D4 uses the same kind of penalty on an autoencoder.
 
 **Gate (step 5).** A planned stop-and-decide point: if the physical relations do not hold on this car, we change plan before building anything else.
 

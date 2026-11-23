@@ -32,7 +32,8 @@ Attackers who can send messages on a car's internal network can change values su
 - Detectors that look only at message timing or ID order cannot see an attack that keeps timing normal and changes only the values [3][8].
 - Signal-level detectors exist, but the closest recent one reports false positive rates of 17.5% to 39.6% depending on the attack [3]. A detector that cries wolf that often cannot be used.
 - Physics-based checks on real vehicles report low error rates in their own tests (missed attacks below 5% at default thresholds in [7]; false positive rate below 0.5% in [8]), but they are built from engineering models rather than learned from signal data [7][8].
-- Nobody we found has measured, on the same public data, what physics adds to a learned detector.
+- Mixing physics with learning is **not new**: it has been done for in-car signals [14], electric-vehicle powertrains [15] and vehicle platoons [13][16]. The closest study [13] trains the same LSTM with and without a physics loss and reports that physics raised overall F1 from 93.86% to 95.74%. That result comes from simulated platoon data with a hardware brake rig, not from a car's internal network.
+- What we did not find is the same with-and-without-physics test on a **public recording of a real car's CAN bus**, with the alarm threshold fixed on normal driving only.
 
 ## 4. Problem statement
 
@@ -48,19 +49,31 @@ Attackers who can send messages on a car's internal network can change values su
 | [5] | Ganesan et al. (SAE 2017) | Pairwise correlation between vehicle sensors to detect anomalies. | Statistical correlation, not physical equations. |
 | [6] | ORNL benchmark of unsupervised masquerade detectors on ROAD (2024) | Compares four correlation-based detectors. No single method is best for every attack; the benchmarked detectors do not detect every attack type. | Correlation only; no named physical signals. |
 | [7] | SAID (USENIX Security 2022) | Checks injected messages against three vehicle dynamics models (roll, steering/yaw, accelerating/braking) on real vehicles. Reports false negatives below 5% at default thresholds. | Rule and threshold based. Authors name machine learning as future work. No comparison with a learned detector. |
-| [8] | CADD (RAID 2024) | Checks that driver controls match the resulting acceleration, estimating road slope, tyre slip and mass. Reports recall above 96% and false positive rate below 0.5% on more than 87,000 test cases. | Acceleration only. Needs engine torque, pedal, gear and slope information. No learned-detector comparison. |
+| [8] | CADD (RAID 2024) | Checks that driver controls match the resulting acceleration, estimating road slope, tyre slip and mass. Reports recall above 96% and false positive rate below 0.5% on more than 87,000 test cases. | Acceleration only. Needs engine torque, pedal, gear and slope information. Does compare against a learned detector: an LSTM-based baseline (PID-Piper), reimplemented by the authors and tested only in CarSim with varied road slope and friction. At a false-positive rate near CADD's (about 4%) it caught under 30.7% of attacks (PDF p. 12, Fig. 11), and still had a 66.95% false-positive rate with extra slope training data (PDF p. 19, Table 11). No physics-informed learner in that comparison, and none on recorded data. |
 | [9] | ATHENA (2025 preprint) | Mines rules from message bits on ROAD. | Not motion equations. |
 | [10] | "Conservative PINN" with encryption (2026 journal) | Claims a PINN for CAN and reports RPM spoofing accuracy. | Shows the phrase "PINN for CAN" is already used. Not read beyond a summary. |
+| [13] | Philip et al., physics-informed LSTM for platoon attack detection (2026) | **Closest prior work.** CNN, LSTM and physics-informed LSTM (PI-LSTM) trained on normal data only, same sequences, attacks and threshold rule for all. Physics loss from spacing, velocity and force-balance residuals; a learnable offset absorbs road grade. Overall AUROC 98.33%, F1 95.74% (LSTM without physics: 97.29%, 93.86%). | Platoon (vehicle-to-vehicle) states, not in-car CAN signals. Data from a truck simulator plus a brake hardware rig, not a recorded drive. Threshold chosen as the F1-optimal point on validation data that contains attacks. No physics-only baseline, no attacker who keeps physics consistent. |
+| [14] | Wasicek et al., context-aware intrusion detection (CAID) | Adds a physical model to a car IDS; an unsupervised neural network flags chip-tuning manipulation of engine behaviour. | Shows "physics + learned detector for in-car signals" already exists. Not read beyond a summary and the authors' slides; year, venue and data to confirm. |
+| [15] | Guo, Ye, Yang, "Cyberattack detection for electric vehicles using physics-guided machine learning," IEEE TTE 7(3), 2021 | Physics-guided classifier for EV cyberattacks, tested on a hardware-in-the-loop rig. | Supervised, EV powertrain, lab rig. Abstract and listing only. |
+| [16] | Vyas, Padisala, Dey, PINN for attack detection in platoons, ACC 2023 | PINN with physics-guided parameter learning on platoon perception channels. | As described in [13]: several PINNs trained online. Not read directly. |
+| [17] | Zhao et al., "Application-layer anomaly detection leveraging time-series physical semantics in CAN-FD vehicle networks," Electronics 13(2), 2024 | LSTM with self-attention predicts decoded CAN-FD signal values. | "Physical semantics" means the signals' meaning, not physical equations. Private data. Search summary only. |
 
-## 6. The gap (candidate)
+## 6. The gap (candidate, revised 2026-11-22)
 
-In the sources we read:
+**What is already done, so we must not claim it:**
 
-- Detectors that use vehicle physics [7][8] are built from engineering models with thresholds. In the parts we read, neither is compared against a learned signal detector. We have not read their evaluation sections in full, so the literature review must confirm this.
-- Detectors that learn from signals [1][3][4] use no explicit physics.
-- We did not find a study that puts both on the same public decoded-signal data and measures what physics adds, under the same false-alarm budget, on unseen recordings.
+- Physics-based intrusion detection for cars exists [7][8].
+- Physics combined with a learned detector exists for in-car signals [14], EV powertrains [15] and platoons [13][16].
+- A controlled "same network, with and without physics" comparison exists [13], but on simulated platoon data.
 
-**This is a candidate gap.** It rests on the ten sources in section 13 and a handful of searches, not a systematic review. The Stage 2 literature review must confirm it. If a paper that already does this turns up, the project becomes a replication on different data, which is still a valid course project.
+**What we did not find** (17 sources, about 12 targeted web searches on 2026-11-22; not a systematic review):
+
+- That comparison on a **public, real-car, decoded CAN dataset**. Searches for physics-informed work on X-CANIDS [1] returned nothing.
+- A comparison that includes a **physics-only detector** as well, so the network's own value is tested (RQ3). The nearest is [8], which pits a physics detector against a plain LSTM detector, but only in simulation and with no physics-informed learner.
+- An alarm threshold fixed on **normal driving only**, before any attack is seen. [13] picks its threshold using validation data that contains attacks, which real deployments cannot do.
+- A test against an attacker who **keeps the physics consistent** (RQ4).
+
+**So the project is:** a test of whether a reported benefit of physics-informed learning [13] carries over from simulated platoon data to a real car's internal network, under stricter evaluation rules. If physics does not help here, that is still a finding. If a paper that already does this turns up, the project becomes a replication on different data, which is still a valid course project.
 
 ## 7. Research questions
 
@@ -136,6 +149,8 @@ Four detectors, same signals, same windows:
 
 **Attacks used for testing.** We edit signal values in unseen normal recordings: freeze a value, drift it slowly, add an offset, replay an earlier segment. Freeze and drift are also used in [3]; replay is one of the dataset's own categories [1]. We also include one attack that changes a whole group of related signals consistently, which physics is expected to miss, to show the limit honestly. All of these are labelled synthetic.
 
+How our attacks line up with the closest prior work [13], so results can be compared in words (not in numbers, because the data differ): offset = their *bias*, drift = their *ramp*, freeze = *freeze*, replay = *replay*, consistent group = a *scaling* attack applied to every related signal at once. We do not use their sinusoidal, FDI or composite attacks (our choice, to keep the core small).
+
 ## 11. Evaluation
 
 - **Split by whole recording.** Training, threshold-setting and test recordings never share a drive. Recording 6 and everything derived from it are test only.
@@ -155,7 +170,7 @@ Four detectors, same signals, same windows:
 | The decoding file is community-made, not from the manufacturer | [2]; [3] had to mix two DBC files | Confirm each signal's meaning and unit from the data itself. |
 | High false alarms | 17.5% to 39.6% in [3] | Fix the false-alarm budget first; report alarms per hour, not only accuracy. |
 | Physics adds nothing | Possible | Report it. RQ3 and RQ4 still give results. |
-| Someone already did this | [7][8] are close | Stage 2 review; position as a controlled comparison, cite them as the physics baselines. |
+| Someone already did this | [7][8] use physics; [13] already compares with and without physics, on platoons | Do not claim "first physics IDS". Cite [13] as the study we test on real CAN data; cite [7][8][14] as physics detectors. Stage 2 review re-checks for a CAN-dataset version. |
 | Edited recordings are not real attacks | Same limit as [1][3] | State it. The car does not react to our edits. No safety claims. |
 | One car only | [1] states this limit itself | No claim about other vehicles. |
 
@@ -170,9 +185,16 @@ Four detectors, same signals, same windows:
 | [5] | Ganesan et al. "Exploiting Consistency Among Heterogeneous Sensors for Vehicle Anomaly Detection." SAE 2017. [PDF](https://kabru.eecs.umich.edu/rtclweb/assets/publications/2017/Ganesan-SAE-2017.pdf) | Search summary, and as described in [6]. Not read directly. |
 | [6] | "Evaluating lightweight unsupervised online IDS for masquerade attacks in CAN." [arXiv:2406.13778](https://arxiv.org/abs/2406.13778), 2024 | Full text searched by keyword. |
 | [7] | Xue et al. "SAID: State-aware Defense Against Injection Attacks on In-vehicle Network." USENIX Security 2022. [PDF](https://usenix.org/system/files/sec22summer_xue.pdf) | Full PDF searched by keyword. Title and authors confirmed from the PDF. |
-| [8] | Chen, Shin, Dadras. "Context-Aware Anomaly Detection Using Vehicle Dynamics" (the method is called CADD). RAID 2024. [PDF](https://rtcl.eecs.umich.edu/rtclweb/assets/publications/2024/raid24-chen.pdf) | Full PDF searched by keyword. |
+| [8] | Chen, Shin, Dadras. "Context-Aware Anomaly Detection Using Vehicle Dynamics" (the method is called CADD). RAID 2024. [PDF](https://rtcl.eecs.umich.edu/rtclweb/assets/publications/2024/raid24-chen.pdf) | Full PDF searched by keyword. Results, baseline comparison (§7) and Appendix C re-read on 2026-11-23 for `literature_review.md`. |
 | [9] | Wang et al. "ATHENA." [arXiv:2503.17067](https://arxiv.org/abs/2503.17067), 2025 | Search summary only. |
 | [10] | Homomorphic-encryption IDS with conservative PINN, Journal Européen des Systèmes Automatisés, 2026. [Listing](https://www.iieta.org/journals/jesa/paper/10.18280/jesa.590401) | Search summary only. |
+| [11] | Koscher et al. "Experimental security analysis of a modern automobile." IEEE S&P 2010 | Cited from memory in the slide notes; not re-read. |
+| [12] | Miller and Valasek. "Remote exploitation of an unaltered passenger vehicle." Black Hat USA 2015 | Cited from memory in the slide notes; not re-read. |
+| [13] | Philip, Rajadurai, Koonthalakadu Baby, Subramanian. "Physics-Informed Temporal Learning for Cyber Attack Detection in Vehicle Platoons." 2026. Local copy: `references/ISI_2026_Princy.pdf` | **Full PDF read (6 pages).** The PDF itself does not print the venue; "ISI 2026" comes from the file name only. Confirm before citing. |
+| [14] | Wasicek, Pesé, Weimerskirch, Burakova, Singh. "Context-aware Intrusion Detection in Automotive Control Systems." [Slides](https://www.slideshare.net/ArminWasicek/contextaware-automotive-intrusion-detection-using-reference-models) | Search summary and slide listing only. Year and venue not confirmed. |
+| [15] | Guo, Ye, Yang. "Cyberattack Detection for Electric Vehicles Using Physics-Guided Machine Learning." IEEE TTE 7(3):2010–2022. [Listing](https://www.aminer.cn/pub/600fe71fd4150a363c218ad8/cyberattack-detection-for-electric-vehicles-using-physics-guided-machine-learning) | Abstract via listing; bibliographic details from [13]'s reference list. |
+| [16] | Vyas, Padisala, Dey. "A physics-informed neural network approach towards cyber attack detection in vehicle platoons." ACC 2023, pp. 4537–4542 | Only as described in [13]. Not read. |
+| [17] | Zhao et al. "Application-Layer Anomaly Detection Leveraging Time-Series Physical Semantics in CAN-FD Vehicle Networks." Electronics 13(2):377, 2024. [Paper](https://mdpi.com/2079-9292/13/2/377) | Search summary only. |
 
 "Searched by keyword" means the full text was fetched and the passages on data, method, results and limits were read. It is not a cover-to-cover reading. Before the Stage 2 review, read [1], [3], [7] and [8] completely and confirm every number quoted above.
 
@@ -180,9 +202,11 @@ Four detectors, same signals, same windows:
 
 **May claim:** a controlled comparison of four detectors on public real-car signals; where physics helped and where it did not, on this car; a reproducible attack-injection procedure.
 
-**May not claim:** the first physics-informed CAN detector; a PINN in the strict sense; attacks carried out on a vehicle; results that hold for other cars; crash prevention; publication.
+**May not claim:** the first physics-informed CAN detector; that physics-based or physics-informed intrusion detection has not been done (it has [7][8][13]–[16]); the first with-and-without-physics comparison ([13] did one on platoons); a PINN in the strict sense; attacks carried out on a vehicle; results that hold for other cars; crash prevention; publication.
 
 ## 15. Slide outline
+
+*Historical: this is the outline of the Stage 1 slides, which were presented before the 2026-11-22 revision. Their gap slide used only [1], [3], [7], [8]. Any future slides must use section 6 as revised and cite [13].*
 
 | Slide | Pull from |
 |---|---|
@@ -201,7 +225,7 @@ Four detectors, same signals, same windows:
 ## 16. Likely questions
 
 - **Is this a PINN?** No, not in the strict sense. A classic PINN solves a differential equation. We use known relations between signals inside a detector, which is physics-informed learning. Detector D4 puts physics in the training loss.
-- **What is new?** Possibly the controlled comparison. We say "candidate gap" until the literature review confirms it.
+- **Physics-informed detection has been done. What is new?** Agreed, it has [7][8][13]–[16]. The closest study [13] showed physics helps an LSTM on simulated platoon data. We test whether that holds on a public recording of a real car's CAN bus, with a physics-only baseline, a threshold fixed on normal driving only, and an attacker who keeps physics consistent. We say "candidate gap" until the literature review confirms nobody has done this on CAN data.
 - **Are the attacks real?** No. They are edits to recorded normal driving, as in [1] and [3]. The car does not react.
 - **Why not use the dataset's own attacks?** We do, as a side check. The dataset's authors already detect them at above 0.99, so they are unlikely to show a difference between detectors.
 - **What if physics does not help?** We report that, plus which attacks physics can never see.

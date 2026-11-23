@@ -1,6 +1,8 @@
 # Implementation Guide: From Empty Folder to Final Results
 
-Companion to [project_proposal.md](project_proposal.md). Technical terms are explained in [glossary.md](glossary.md). Do the steps in order. Each step says what to do, what you must have at the end, and when to stop. Do not start a step until the previous one's "Done when" is true.
+Companion to [project_proposal.md](project_proposal.md). Technical terms are explained in [glossary.md](glossary.md). The whole process on one page: [proposal/figures/methodology_flowchart.pdf](proposal/figures/methodology_flowchart.pdf) (edit its `.json` spec when a step changes).
+
+**Position of this work (revised 2026-11-22, see `decisions.md`).** Physics-informed attack detection is not new [7][8][13]–[16]. The closest study [13] compares the same network with and without a physics loss on simulated platoon data. We test whether that gain holds on real-car CAN signals, with a physics-only baseline, thresholds fixed on normal driving only, and a physics-consistent attacker. Never write "first" or "not done before" in any document. Do the steps in order. Each step says what to do, what you must have at the end, and when to stop. Do not start a step until the previous one's "Done when" is true.
 
 **Three kinds of statement appear below. Keep them apart:**
 
@@ -149,6 +151,8 @@ The injector takes a normal aligned recording and returns an edited copy plus a 
 | Whole message | Apply the same edit to all four wheel speeds (one message, `WHL_SPD11`); other units' speed signals untouched | Realistic: masquerading one message controls all its signals. See `decisions.md`. |
 | Consistent group | Multiply all four wheel speeds and all three speed signals by the same factor | Physics is expected to miss this. It is the honesty test for RQ4. |
 
+Names in the closest prior work [13], for the related-work comparison: offset = *bias*, drift = *ramp*, freeze = *freeze*, replay = *replay*, consistent group = *scaling* applied to every related signal. Their sinusoidal, FDI and composite attacks are not used (our choice).
+
 **Targets** (one at a time, except the group attack): one wheel speed, `CF_Clu_Vanz`, `YAW_RATE`, `LONG_ACCEL`, `N`, `SAS_Angle`, and the control signal `TEMP_ENG`.
 
 **Sizes** (*our choice*): express `Δ` in units of that signal's normal spread on training data, at three levels: small (0.5×), medium (2×), large (5×). Clip to the signal's legal range from the decoding file so the edit is never an out-of-range value.
@@ -190,7 +194,7 @@ Keep everything identical to D2 (signals, windows, layer sizes, training rule, s
 **D3: physics as inputs**
 - Append the scaled residuals from step 7 as extra input channels. The model reconstructs the original signals and the residual channels.
 
-**D4: physics in the training loss**
+**D4: physics in the training loss** (the same idea as the physics-informed LSTM in [13], applied to our autoencoder)
 - Loss = reconstruction error + `λ` × physics penalty.
 - Physics penalty = mean squared residual of the kept relations computed on the model's **reconstructed** signals, after converting them back to physical units. R2 needs a time difference inside the window; R1, R3, R4, R5 are computed row by row. Skip rows where a relation is not valid (for example below the minimum speed).
 - Choose `λ` from a short list (*our choice:* 0.01, 0.1, 1) by lowest validation reconstruction error together with lowest validation physics penalty. Do not look at attack results to choose it.
@@ -205,6 +209,7 @@ Keep everything identical to D2 (signals, windows, layer sizes, training rule, s
 **Do**
 - For each detector and seed, compute scores on the **normal validation recording**.
 - *Our choice:* threshold = the 99.9th percentile of those scores. One threshold per detector, used for everything.
+- **Known:** [13] instead picks the F1-best threshold on validation data that contains attacks. We deliberately do not: a deployed detector never sees the attacks in advance. This is one of the points that separates our study from [13]; do not copy their rule.
 - Define an alarm event: consecutive rows above threshold, with gaps shorter than 1 s merged (*our choice*).
 - Save thresholds to `work/thresholds.json`. From this point they are frozen.
 
@@ -248,7 +253,7 @@ Build these from the results files, averaging over seeds and showing the spread:
 
 Then answer, in one paragraph each, only what the tables support:
 
-- **RQ1:** compare D3 and D4 with D2. Call a difference real only if it is larger than the spread across seeds.
+- **RQ1:** compare D3 and D4 with D2. Call a difference real only if it is larger than the spread across seeds. Then say in words whether this agrees with [13] (physics raised F1 by about 1.9 points there). Do not put our numbers and theirs in one table: data, attacks and threshold rules differ.
 - **RQ2:** compare D3 with D4.
 - **RQ3:** compare D1 with the best of D2 to D4.
 - **RQ4:** list the attacks nobody detected and the ones only non-physics detectors caught, with the reason.
@@ -261,7 +266,7 @@ Then answer, in one paragraph each, only what the tables support:
 
 **Paper sections** (rubric Stage 4): abstract, introduction, related work, method, results, discussion, references.
 
-- Related work comes from the proposal's section 5, after the full readings.
+- Related work comes from the proposal's section 5, after the full readings. Organise it as: learned signal detectors [1][3][4]; physics rule checkers [7][8]; physics plus learning [13]–[16], with [13] as the study we test on CAN data. Before writing, confirm the venue of [13] and the year and venue of [14], and read [16] directly.
 - Method is steps 3 to 10 of this guide.
 - Results are step 11 to 13 outputs.
 - Discussion must include these limits: attacks are edits to recordings and the car does not react; one car; decoding file is community-made; relations were fitted on the same car; thresholds depend on one validation recording; which relations were dropped and why.
@@ -303,7 +308,7 @@ The full plan is large. If time or skill runs short, cut to the core. The core s
 | False alarms per hour are very high on recording 6 | Recording 6 differs from validation driving | Report it as it is. Do not move the threshold. Discuss it as the test drive differing from the training drives (distribution shift). |
 | D4 equals D2 | `λ` too small, or the model already satisfies the relations | Report the validation physics penalty for both; this is a finding, not a failure. |
 | Results change a lot between seeds | Too little training data or unstable training | Report the spread; do not pick the best seed. |
-| A paper turns up that already did this comparison | The gap was only a candidate | Cite it, reposition as a replication on public data, keep going. |
+| A paper turns up that already did this comparison on CAN data | The gap was only a candidate ([13] already did it on platoons) | Cite it, log it in `decisions.md`, reposition as a replication on public data, keep going. |
 
 ## What you will hold at the end
 
