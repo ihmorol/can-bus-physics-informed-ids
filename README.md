@@ -44,6 +44,8 @@ Suggested order for a new member: speech → terms explained → defence Q&A →
 | Path | What it is |
 |---|---|
 | [decisions.md](decisions.md) | Log of every data finding and every choice we changed, with reasons. |
+| [reports/](reports/) | `CAN IDS systematic literature review.md`: the systematic screen of 136 papers (method, flow counts, 20-paper core, keep/drop of old sources, gap check, full screening log). Notes behind it are in `research_notes/`. |
+| [research/](research/) | `literature_tracker.md` (+ `.csv`): the current source register (20-paper core, reserve list, removed sources), evidence matrix, gap coverage and verification queue. `methodology_feasibility.md`: stage-by-stage feasibility review of the flowchart, with proposed changes (not yet adopted). |
 | [results/](results/) | Data checks so far: file inventory, signal check and signal plots. No detector results yet. |
 | [src/](src/) | Code. `inventory.py` checks the data files; `scratch/` holds a rough feasibility test (not a result). |
 | [course/](course/) | Course catalogue and marking rubric. |

@@ -1,0 +1,28 @@
+id,status,group,short_citation,venue,year,doi,peer_reviewed,scopus_venue_level,citations_2026_11_23,read_level,role,rqs,next_action
+[1],core,a dataset & learned baselines,"Jeong, Lee, Lee, Kim - X-CANIDS","IEEE TVT 73(3):3230-3246",2024,10.1109/TVT.2023.3327275,yes,journal,"OA 89; S2 68",KEY,"data source; D2 family","RQ1; RQ3",none
+[2],core (data file),a dataset & learned baselines,"commaai/opendbc hyundai_2015_ccan.dbc",GitHub,,,no,n/a,n/a,file checked,"signal names, units",all,cite with commit hash and access date
+[3],core (preprint),a dataset & learned baselines,"Rahman, Salek, Chowdhury - digital-twin powertrain IDS",arXiv:2608.17093,2026,10.48550/arXiv.2608.17093,no (preprint),n/a,0,KEY,closest real-car learned competitor,"RQ1; RQ4",check data source and peer-reviewed version
+[4],core,a dataset & learned baselines,"Shahriar et al. - CANShield","IEEE IoT-J 10(24):22111-22127",2023,10.1109/JIOT.2023.3303271,yes,journal,"OA 98; S2 79",KEY (arXiv v4),D2 autoencoder design,RQ1,re-map locators to IoT-J version
+N1,core,a dataset & learned baselines,"Kang et al. (check) - CANival","Vehicular Communications 50:100845",2024,10.1016/j.vehcom.2024.100845,yes,journal,OA 55,ABS,"X-CANIDS numeric anchor: TPR 0.960, TNR 0.997 (abstract)",RQ1,"full text: attacks, threshold"
+[7],core,b physics-only,"Xue et al. - SAID","USENIX Security 2022 pp.1921-1938",2022,,yes,uncertain,S2 24,KEY,"physics comparator; steering/yaw model",RQ3,keyword-search R3
+[8],core,b physics-only,"Chen, Shin, Dadras - CADD",RAID 2024,2024,10.1145/3678890.3678895,yes,likely,S2 8,KEY,"physics vs LSTM under shift; R2 slope","RQ1; RQ3",keyword-search R3
+N2,core,b physics-only,"Ben Othmane et al. - injection detection on CAN","IEEE TDSC (accepted 2020)",2020,10.1109/TDSC.2020.2990192,yes,journal,not checked,ABS,"R5 speed-RPM vs k-means/HMM on real vehicle",RQ3,confirm volume/year
+[13],core,c physics + learning,"Philip et al. - PI-LSTM platoons","IEEE ISI 2026 pp.144-149",2026,10.1109/ISI69914.2026.11685836,yes,likely,0,FULL,closest prior work,"RQ1; RQ2",check third author name
+[14],core (flagged),c physics + learning,"Wasicek et al. - CAID",escar USA 2017 (secondary reference),2017,,probably,probably not,S2 51,ABS,novelty risk,novelty,full text; confirm venue
+[15],core,c physics + learning,"Guo, Ye, Yang - physics-guided ML for EV attacks","IEEE TTE 7(3):2010-2022",2021,10.1109/TTE.2020.3044524,yes,journal,"OA 71; S2 51",ABS,D3 vehicle precedent,RQ2,none
+[16],core,c physics + learning,"Vyas, Padisala, Dey - PINN for platoons","ACC 2023 pp.4537-4542",2023,10.23919/ACC55779.2023.10155846,yes,likely,"OA 12; S2 9",ABS,D4 vehicle precedent,RQ2,full text (guide step 14)
+N3,core,c physics + learning,"van Wyk, Wang, Khojandi, Masoud - sensor anomaly detection in AVs","IEEE T-ITS 21(3):1264-1276",2020,10.1109/TITS.2019.2906038,yes,journal,"OA 413; S2 304",ABS,"physics-only vs learned vs hybrid","RQ1; RQ3",full text: real or simulated data
+N4,core,c physics + learning,"Chahine, Noura - Features over Architecture","Future Internet 18(6):308",2026,10.3390/fi18060308,yes,believed,OA 3,ABS,"D3 template (PA-F1 0.7343 vs 0.6687)","RQ1; RQ2",full text: placement ablation
+N5,core,c physics + learning,"Zideh, Solanki - physics-informed conv autoencoder","Sustainable Energy Grids and Networks 44:102022",2025,10.1016/j.segan.2025.102022,yes,journal,"OA 30; S2 14",ABS,D4 template,RQ2,full text: loss weighting
+N6,core,d evaluation,"Verma et al. - ROAD dataset guide","PLOS ONE 19(1):e0296879",2024,10.1371/journal.pone.0296879,yes,journal,OA 180,ABS+,dataset-realism critique,protocol,none
+N7,core,e stealthy attacks,"Erba et al. - constrained concealment attacks",ACSAC 2020,2020,10.1145/3427228.3427660,yes,likely,OA 125,ABS,"consistent-group attack model (recall 0.68->0.12)",RQ4,full text: attack construction
+N8,core,e stealthy attacks,"Urbina et al. - limiting impact of stealthy attacks",ACM CCS 2016,2016,10.1145/2976749.2978388,yes (seminal),proceedings,OA 459,ABS,fixed false-alarm bound evaluation,"RQ4; protocol",metric section
+N9,core,f survey & threat,"Rajapaksha et al. - AI-based IDS for in-vehicle networks survey",ACM Computing Surveys,2023,10.1145/3570954,yes,journal,OA 317,ABS,introduction survey,intro,none
+[11],core,f survey & threat,"Koscher et al. - experimental security analysis of a modern automobile",IEEE S&P 2010,2010,10.1109/SP.2010.34,yes (seminal),likely,"OA 2,263",ABS,threat model,intro,re-read cited claim
+N10,core,f survey & threat,"Checkoway et al. - automotive attack surfaces",USENIX Security 2011,2011,,yes (seminal),unknown,"OA 1,984",ABS,replaces [12],intro,none
+[5],reserve,,"Ganesan, Rao, Shin - heterogeneous sensor consistency",SAE 2017-01-1654,2017,10.4271/2017-01-1654,yes (seminal),unknown,S2 51,ABS+,origin of natural redundancy,RQ3,cite only if needed
+[6],reserve,,"Moriano et al. - unsupervised online IDS for masquerade","JISA 98:104392",2026,10.1016/j.jisa.2026.104392,yes,journal,not checked,KEY (arXiv v3),masquerade motivation,motivation,cite JISA version if used
+[17],reserve,,"Zhao et al. - PSEAD","Electronics 13(2):377",2024,10.3390/electronics13020377,yes,journal,not checked,ABS,naming contrast,novelty,one sentence at most
+[9],removed,,"ATHENA",arXiv:2503.17067,2025,,no (preprint),n/a,,ABS,,,dropped
+[10],removed,,"Senthilkumar, Anbalagan - HE IDS with conservative PINN","JESA 59(4):855-869",2026,10.18280/jesa.590401,yes,publisher claim only,,ABS,,,dropped: no physical relation in abstract
+[12],removed,,"Miller, Valasek - remote exploitation",Black Hat USA 2015,2015,,no (white paper),n/a,,memory,,,replaced by N10
