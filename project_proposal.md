@@ -176,6 +176,8 @@ How our attacks line up with the closest prior work [13], so results can be comp
 
 ## 13. Sources and how far each was read
 
+> **Updated 2026-11-23 after the systematic screen** (136 abstracts; see `reports/CAN IDS systematic literature review.md` and `decisions.md`). The current register is [research/literature_tracker.md](research/literature_tracker.md). Changes to the table below: **[9] and [10] dropped**; **[12] replaced by N10** (Checkoway et al., USENIX Security 2011); **[5], [6], [17] moved to a reserve list**; venues confirmed for [13] (IEEE ISI 2026, doi:10.1109/ISI69914.2026.11685836), [4] (IEEE IoT-J 10(24), 2023) and [6] (JISA 98:104392, 2026). New core papers N1–N10 are listed after this table. The table is kept for the read-level history.
+
 | # | Source | Read level |
 |---|---|---|
 | [1] | Jeong, Lee, Lee, Kim. "X-CANIDS: Signal-Aware Explainable Intrusion Detection System for Controller Area Network-Based In-Vehicle Network." IEEE TVT 73(3), 2024. [Paper](https://doi.org/10.1109/TVT.2023.3327275) · [arXiv:2303.12278](https://arxiv.org/abs/2303.12278) · [Dataset](https://ieee-dataport.org/open-access/x-canids-dataset-vehicle-signal-dataset) | Dataset page read in full. arXiv version searched by keyword across the full text. Dataset files not opened. |
@@ -195,6 +197,21 @@ How our attacks line up with the closest prior work [13], so results can be comp
 | [15] | Guo, Ye, Yang. "Cyberattack Detection for Electric Vehicles Using Physics-Guided Machine Learning." IEEE TTE 7(3):2010–2022. [Listing](https://www.aminer.cn/pub/600fe71fd4150a363c218ad8/cyberattack-detection-for-electric-vehicles-using-physics-guided-machine-learning) | Abstract via listing; bibliographic details from [13]'s reference list. |
 | [16] | Vyas, Padisala, Dey. "A physics-informed neural network approach towards cyber attack detection in vehicle platoons." ACC 2023, pp. 4537–4542 | Only as described in [13]. Not read. |
 | [17] | Zhao et al. "Application-Layer Anomaly Detection Leveraging Time-Series Physical Semantics in CAN-FD Vehicle Networks." Electronics 13(2):377, 2024. [Paper](https://mdpi.com/2079-9292/13/2/377) | Search summary only. |
+
+**New core sources added 2026-11-23** (abstract read during the screen; full details and DOIs in `research/literature_tracker.md`):
+
+| # | Source | Role |
+|---|---|---|
+| N1 | Kang et al., "CANival," Vehicular Communications 50:100845, 2024 | Only peer-reviewed signal-level detector with X-CANIDS numbers |
+| N2 | Ben Othmane et al., "On the Performance of Detecting Injection of Fabricated Messages into the CAN Bus," IEEE TDSC, 2020 | Physics relation (speed vs RPM) vs unsupervised ML on a real moving vehicle |
+| N3 | van Wyk, Wang, Khojandi, Masoud, "Real-Time Sensor Anomaly Detection and Identification in Automated Vehicles," IEEE T-ITS 21(3), 2020 | Physics-only vs learned vs hybrid in one study |
+| N4 | Chahine, Noura, "Features over Architecture: Physics-Informed Anomaly Detection in Industrial Control Systems," Future Internet 18(6):308, 2026 | Template for D3 (physics features vs raw, same detector) |
+| N5 | Zideh, Solanki, "Multivariate physics-informed convolutional autoencoder for anomaly detection in power distribution systems...," SEGAN 44:102022, 2025 | Template for D4 (physics term in an autoencoder loss) |
+| N6 | Verma et al., "A comprehensive guide to CAN IDS data and introduction of the ROAD dataset," PLOS ONE 19(1), 2024 | Dataset-realism critique |
+| N7 | Erba et al., "Constrained Concealment Attacks against Reconstruction-based Anomaly Detectors in ICS," ACSAC 2020 | Model for the consistent-group attack (RQ4) |
+| N8 | Urbina et al., "Limiting the Impact of Stealthy Attacks on Industrial Control Systems," ACM CCS 2016 | Evaluation at a fixed false-alarm bound |
+| N9 | Rajapaksha et al., "AI-Based Intrusion Detection Systems for In-Vehicle Networks: A Survey," ACM Computing Surveys, 2023 | Survey for the introduction |
+| N10 | Checkoway et al., "Comprehensive Experimental Analyses of Automotive Attack Surfaces," USENIX Security 2011 | Replaces [12] |
 
 "Searched by keyword" means the full text was fetched and the passages on data, method, results and limits were read. It is not a cover-to-cover reading. Before the Stage 2 review, read [1], [3], [7] and [8] completely and confirm every number quoted above.
 

@@ -96,3 +96,18 @@ On normal dump2, 0.041% of moving rows were above the threshold. Conclusion: the
 - [13] uses its physics residuals in the anomaly score at inference as well as in the training loss (PDF p. 4, §IV-D). Its reported gain cannot be credited to the training loss alone. D4 adds physics only to the training loss, so D4 is not an exact copy of [13]. Decide whether to say so or add a residual-scoring variant.
 - [13] gives no false-positive rate in the text and no spread across training runs (Table III, one value per cell).
 - The other numbers quoted for [1], [3], [7] and [8] in section 5 matched the papers.
+
+## 2026-11-23: Systematic literature screen; source list reset to a 20-paper core
+
+**Trigger.** Request to replace the 17-source corpus with a systematic search of recent, peer-reviewed, high-impact work, screening at least 50 to 60 abstracts, and to keep only the most relevant papers.
+
+**What was done.** Five topic streams (signal-level learned IDS; physics and vehicle-dynamics detection; physics-informed ML detection; datasets, evaluation and surveys; stealthy and physics-consistent attacks). 136 distinct records screened on abstract (83 include, 11 uncertain, 42 exclude); 23 more found without a retrievable abstract. Screening was by AI agents, one per stream, abstract level only; OpenAlex was the main database; Scopus, IEEE Xplore and Google Scholar were not queried directly. PRISMA-informed, not PRISMA-compliant. Full report: `reports/CAN IDS systematic literature review.md`; notes: `research_notes/CAN IDS systematic literature review/`.
+
+**Decision.**
+- Core set: [1], [2], [3], [4], [7], [8], [11], [13], [14], [15], [16] kept; N1 to N10 added (register in `research/literature_tracker.md`).
+- [5], [6], [17] moved to a reserve list. [9] ATHENA (preprint only) and [10] JESA (no physical relation in its abstract) dropped. [12] Miller and Valasek (white paper) replaced by Checkoway et al., USENIX Security 2011 (N10).
+- Venues confirmed: [13] IEEE ISI 2026, pp. 144 to 149, doi:10.1109/ISI69914.2026.11685836 (closes the open item of 2026-11-22); [4] IEEE IoT-J 10(24), 2023; [6] JISA 98:104392, 2026.
+
+**Effect on the gap claim.** Two of the four candidate gap points already exist elsewhere: a physics-only baseline in the same study (N2, N3, [8]) and a threshold fixed on normal data at a fixed false-alarm rate (timing-only CAN detectors; N8). The claim becomes a combination claim: no screened study puts explicit physical relations into a learned detector on a public real-car decoded CAN dataset, compares inputs vs loss against both a physics-only and a data-only detector at one false-alarm budget fixed on normal data, and tests a physics-consistent attacker. Before Stage 2 calls it a gap, read Gao et al. (KBS 2025) and Luo et al. (IJAT 2025), whose abstracts could not be retrieved.
+
+**Not yet changed.** `literature_review.md` still covers only the 7 earlier full-text sources and needs a rewrite around the new core; `proposal/proposal_v2.md` section 3 should adopt the narrower gap wording.
